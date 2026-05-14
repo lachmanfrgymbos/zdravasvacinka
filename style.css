@@ -292,6 +292,7 @@
   inset: 0;
   overflow: hidden;
   z-index: -1;
+  pointer-events: none;
 }
 
 .particles::before,
@@ -363,8 +364,9 @@
 }
 
 .instagram-pill {
-  position: fixed;
-      z-index: 9999;
+ position: fixed;
+z-index: 99999;
+pointer-events: auto;
   top: 30px;
   right: 30px;
 
@@ -409,6 +411,5 @@
 }
 
 .background-glow,
-.particles {
-  pointer-events: none;
+pointer-events: none;
 }

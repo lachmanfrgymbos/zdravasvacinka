@@ -80,4 +80,185 @@
       line-height: 1.7;
       color: rgba(255,255,255,0.75);
       margin-bottom: 42px;
+    }
 
+    .event-box {
+      width: 100%;
+      max-width: 540px;
+      padding: 28px;
+      border-radius: 28px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      backdrop-filter: blur(14px);
+      margin-bottom: 38px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+    }
+
+    .event-label {
+      font-size: 13px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #8df0a2;
+      margin-bottom: 12px;
+    }
+
+    .event-date {
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .event-time {
+      font-size: 18px;
+      color: rgba(255,255,255,0.7);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 22px;
+      width: 100%;
+      margin-top: 12px;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 24px;
+      padding: 28px;
+      text-align: left;
+      backdrop-filter: blur(12px);
+    }
+
+    .card h2 {
+      font-size: 22px;
+      margin-bottom: 14px;
+    }
+
+    .card p {
+      color: rgba(255,255,255,0.72);
+      line-height: 1.6;
+      margin-bottom: 20px;
+      font-size: 15px;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 14px;
+      padding: 14px 16px;
+      color: white;
+      font-size: 15px;
+      outline: none;
+      transition: 0.2s ease;
+      margin-bottom: 14px;
+    }
+
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    input:focus,
+    textarea:focus {
+      border-color: rgba(141,240,162,0.8);
+      box-shadow: 0 0 0 4px rgba(141,240,162,0.1);
+    }
+
+    button {
+      width: 100%;
+      border: none;
+      border-radius: 14px;
+      padding: 14px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      background: linear-gradient(135deg, #8df0a2, #4ccf78);
+      color: #08110b;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    button:hover {
+      transform: translateY(-2px);
+      opacity: 0.95;
+    }
+
+    footer {
+      margin-top: 48px;
+      font-size: 14px;
+      color: rgba(255,255,255,0.45);
+    }
+
+    @media (max-width: 640px) {
+      .container {
+        padding-top: 40px;
+        padding-bottom: 40px;
+      }
+
+      .event-box,
+      .card {
+        padding: 22px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="background-glow"></div>
+
+  <main class="container">
+    <div class="badge">Zdravá Svačinka • něco se chystá</div>
+
+    <h1>Chuť, kterou
+      <br />
+      ještě nečekáš.
+    </h1>
+
+    <p class="subtitle">
+      Připravujeme jedinečný food koncept plný zdravých chutí, překvapení a atmosféry.
+      Sleduj datum spuštění a dej nám vědět, co bys chtěl ochutnat.
+    </p>
+
+    <section class="event-box">
+      <div class="event-label">Spouštíme</div>
+
+      <!-- ZDE SI ZMĚŇ DATUM A ČAS -->
+      <div class="event-date">24. 6. 2026</div>
+      <div class="event-time">18:00 • Ostrava</div>
+    </section>
+
+    <section class="grid">
+      <div class="card">
+        <h2>Co bys chtěl ochutnat?</h2>
+        <p>
+          Napiš nám nápad, příchuť, snack nebo cokoliv,
+          co bys chtěl na openingu vidět.
+        </p>
+
+        <form>
+          <textarea placeholder="Např. proteinové cookies, matcha drink, více vegan variant..."></textarea>
+          <button type="submit">Odeslat návrh</button>
+        </form>
+      </div>
+
+      <div class="card">
+        <h2>Newsletter</h2>
+        <p>
+          Chceš vědět první, kdy spustíme web a co chystáme?
+          Přihlas se k odběru.
+        </p>
+
+        <form>
+          <input type="email" placeholder="Tvůj e-mail" required />
+          <button type="submit">Přihlásit se</button>
+        </form>
+      </div>
+    </section>
+
+    <footer>
+      © 2026 Zdravá Svačinka • coming soon
+    </footer>
+  </main>
+</body>
+</html>

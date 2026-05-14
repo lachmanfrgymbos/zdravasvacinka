@@ -286,3 +286,50 @@
   background: rgba(255,255,255,0.18);
   box-shadow: 0 0 30px rgba(124, 58, 237, 0.25);
 }
+
+.particles {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.particles::before,
+.particles::after {
+  content: '';
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.35;
+
+  animation: float 14s ease-in-out infinite;
+}
+
+.particles::before {
+  background: #4ade80;
+  top: -150px;
+  left: -150px;
+}
+
+.particles::after {
+  background: #8b5cf6;
+  bottom: -200px;
+  right: -200px;
+  animation-delay: 4s;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px) translateX(0px);
+  }
+
+  50% {
+    transform: translateY(-40px) translateX(30px);
+  }
+
+  100% {
+    transform: translateY(0px) translateX(0px);
+  }
+}

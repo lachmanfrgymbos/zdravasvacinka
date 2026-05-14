@@ -261,3 +261,28 @@
         padding: 22px;
       }
     }
+
+.instagram-link {
+  margin-top: 40px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 24px;
+  border-radius: 999px;
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
+
+  background: rgba(255,255,255,0.12);
+  backdrop-filter: blur(12px);
+
+  border: 1px solid rgba(255,255,255,0.2);
+
+  transition: all 0.3s ease;
+}
+
+.instagram-link:hover {
+  transform: translateY(-2px) scale(1.03);
+  background: rgba(255,255,255,0.18);
+  box-shadow: 0 0 30px rgba(124, 58, 237, 0.25);
+}

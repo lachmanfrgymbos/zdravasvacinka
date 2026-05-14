@@ -363,7 +363,8 @@
 }
 
 .instagram-pill {
-  position: absolute;
+  position: fixed;
+      z-index: 9999;
   top: 30px;
   right: 30px;
 
@@ -405,4 +406,9 @@
 .instagram-pill svg {
   width: 18px;
   height: 18px;
+}
+
+.background-glow,
+.particles {
+  pointer-events: none;
 }

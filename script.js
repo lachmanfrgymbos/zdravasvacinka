@@ -42,7 +42,15 @@ feedbackForm.addEventListener('submit', async (e) => {
 
   feedbackTextarea.value = '';
 
-  button.innerText = 'Uloženo ✓';
+  const toast = document.getElementById('toast');
+
+toast.classList.add('show');
+
+setTimeout(() => {
+  toast.classList.remove('show');
+}, 3000);
+
+button.innerText = 'Odesláno ✓';
 
   setTimeout(() => {
     button.innerText = 'Odeslat návrh';

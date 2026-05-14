@@ -1,43 +1,51 @@
-    const supabaseUrl = 'https://qtilqibkdouaztehzauj.supabase.co';
-    const supabaseKey = 'sb_publishable_Jpe7m1sYMWkT7FEsLn2Unw_IR3Joykt';
+const supabaseUrl = 'https://qtilqibkdouaztehzauj.supabase.co';
+const supabaseKey = 'sb_publishable_Jpe7m1sYMWkT7FEsLn2Unw_IR3Joykt';
 
-    const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey);
+const supabaseClient = supabase.createClient(
+  supabaseUrl,
+  supabaseKey
+);
 
-    const feedbackForm = document.querySelector('.card form');
-    const feedbackTextarea = feedbackForm.querySelector('textarea');
+const feedbackForm = document.querySelector('.card form');
+const feedbackTextarea = feedbackForm.querySelector('textarea');
 
-    feedbackForm.addEventListener('submit', async (e) => {
-      e.preventDefault();
+feedbackForm.addEventListener('submit', async (e) => {
+  e.preventDefault();
 
-      const message = feedbackTextarea.value;
+  const message = feedbackTextarea.value;
 
-      if (!message.trim()) return;
+  if (!message.trim()) return;
 
-      const button = feedbackForm.querySelector('button');
-      button.innerText = 'Odesílání...';
-      button.disabled = true;
+  const button = feedbackForm.querySelector('button');
 
-      const { error } = await supabaseClient
-        .from('feedback')
-        .insert([
-          {
-            message: message
-          }
-        ]);
+  button.innerText = 'Odesílání...';
+  button.disabled = true;
 
-      if (error) {
-        alert('Něco se nepovedlo 😕');
-        console.error(error);
-        button.innerText = 'Odeslat návrh';
-        button.disabled = false;
-        return;
+  const { error } = await supabaseClient
+    .from('feedback')
+    .insert([
+      {
+        message: message
       }
+    ]);
 
-      feedbackTextarea.value = '';
-      button.innerText = 'Uloženo ✓';
+  if (error) {
+    console.error(error);
 
-      setTimeout(() => {
-        button.innerText = 'Odeslat návrh';
-        button.disabled = false;
-      }, 2500);
-    });
+    alert('Něco se nepovedlo 😕');
+
+    button.innerText = 'Odeslat návrh';
+    button.disabled = false;
+
+    return;
+  }
+
+  feedbackTextarea.value = '';
+
+  button.innerText = 'Uloženo ✓';
+
+  setTimeout(() => {
+    button.innerText = 'Odeslat návrh';
+    button.disabled = false;
+  }, 2500);
+});

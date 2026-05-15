@@ -344,6 +344,8 @@ pointer-events: none;
 }
 
 .calendar-button {
+      all: unset;
+      
   margin-top: 18px;
 
   display: inline-flex;
@@ -368,6 +370,8 @@ pointer-events: none;
   backdrop-filter: blur(16px);
 
   transition: all 0.3s ease;
+
+      cursor: pointer;
 }
 
 .calendar-button:hover {

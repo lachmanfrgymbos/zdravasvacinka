@@ -343,43 +343,41 @@
 pointer-events: none;
 }
 
-.calendar-button {
-      all: unset;
-      
-  margin-top: 18px;
+a.calendar-button {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
 
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  margin-top: 20px !important;
 
-  padding: 12px 22px;
+  padding: 12px 24px !important;
 
-  border-radius: 999px;
+  border-radius: 999px !important;
 
-  text-decoration: none;
+  background: rgba(255,255,255,0.14) !important;
 
-  font-size: 14px;
-  font-weight: 600;
+  border: 1px solid rgba(255,255,255,0.2) !important;
 
-  color: white;
+  backdrop-filter: blur(16px) !important;
 
-  background: rgba(255,255,255,0.12);
+  color: #ffffff !important;
 
-  border: 1px solid rgba(255,255,255,0.18);
+  text-decoration: none !important;
 
-  backdrop-filter: blur(16px);
+  font-size: 14px !important;
+  font-weight: 600 !important;
 
-  transition: all 0.3s ease;
+  transition: all 0.3s ease !important;
 
-      cursor: pointer;
+  cursor: pointer !important;
 }
 
-.calendar-button:hover {
+a.calendar-button:hover {
   transform: translateY(-2px);
 
-  background: rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.22) !important;
 
   box-shadow:
-    0 0 25px rgba(139, 92, 246, 0.25),
-    0 0 40px rgba(59, 130, 246, 0.18);
+    0 0 20px rgba(139, 92, 246, 0.22),
+    0 0 40px rgba(59, 130, 246, 0.15);
 }

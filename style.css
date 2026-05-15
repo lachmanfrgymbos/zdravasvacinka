@@ -338,9 +338,8 @@
   transform: translateX(-50%) translateY(0);
 }
 
-
-.background-glow,
-pointer-events: none;
+.background-glow {
+  pointer-events: none;
 }
 
 a.calendar-button {
@@ -380,7 +379,4 @@ a.calendar-button:hover {
   box-shadow:
     0 0 20px rgba(139, 92, 246, 0.22),
     0 0 40px rgba(59, 130, 246, 0.15);
-}
-
-TESTTESTTEST {
 }

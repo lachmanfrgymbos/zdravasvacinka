@@ -1,1 +1,106 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <title>Recepty • Admin</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="background-glow"></div>
+<div class="background-glow second"></div>
+
+<div class="layout">
+
+  <aside class="sidebar">
+
+    <div class="logo">
+      ZDRAVÁ<br>SVAČINKA
+    </div>
+
+    <nav>
+      <a href="index.html">Dashboard</a>
+      <a class="active">Recepty</a>
+    </nav>
+
+  </aside>
+
+  <main class="main">
+
+    <div class="topbar">
+      <div>
+        <h1>Recepty</h1>
+        <p>Přidávání receptů</p>
+      </div>
+    </div>
+
+    <div class="big-card">
+
+      <h3>Přidat recept</h3>
+
+      <form id="recipe-form">
+
+        <input
+          type="text"
+          id="title"
+          placeholder="Název receptu"
+          required
+        >
+
+        <textarea
+          id="description"
+          placeholder="Popis receptu"
+          required
+        ></textarea>
+
+        <textarea
+          id="ingredients"
+          placeholder="Ingredience"
+          required
+        ></textarea>
+
+        <textarea
+          id="steps"
+          placeholder="Postup"
+          required
+        ></textarea>
+
+        <input
+          type="text"
+          id="category"
+          placeholder="Kategorie"
+        >
+
+        <button type="submit">
+          Uložit recept
+        </button>
+
+      </form>
+
+    </div>
+
+    <div class="big-card" style="margin-top:20px;">
+
+      <h3>Seznam receptů</h3>
+
+      <div id="recipes-list"></div>
+
+    </div>
+
+  </main>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="script.js"></script>
+
+</body>
+</html>

@@ -379,3 +379,31 @@ nav a.active{
 
   color:#243326;
 }
+
+.delete-btn{
+  border:none;
+
+  background:rgba(255,255,255,0.7);
+
+  color:#c45b5b;
+
+  padding:8px 14px;
+
+  border-radius:12px;
+
+  cursor:pointer;
+
+  font-size:13px;
+
+  font-weight:600;
+
+  transition:0.25s ease;
+}
+
+.delete-btn:hover{
+  background:#c45b5b;
+
+  color:white;
+
+  transform:translateY(-1px);
+}

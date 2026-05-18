@@ -1,1 +1,31 @@
+/* BACKGROUND */
+#fff9e8   /* warm lemon cream */
+#f4fff2   /* mint white */
+#eefbf5   /* fresh pastel green */
+#f8fff3   /* soft olive white */
 
+/* PRIMARY GREEN */
+#7bbf59   /* fresh olive green */
+#5fa86d   /* darker green for buttons */
+#5c8f3b   /* text green */
+#86b85f   /* lighter accent green */
+
+/* YELLOW / LEMON */
+#ffe082   /* pastel lemon */
+#f0c94d   /* golden lemon gradient */
+
+/* TEXT */
+#243326   /* dark natural green text */
+rgba(36,51,38,0.72)
+
+/* GLOWS */
+rgba(124, 182, 92, 0.18)
+rgba(255, 214, 102, 0.16)
+
+/* GLASS CARDS */
+rgba(255,255,255,0.58)
+rgba(255,255,255,0.82)
+
+Fresh brunch aesthetic
+
+A upřímně — na „Zdravou Svačinku“ to sedí fakt dobře 😄

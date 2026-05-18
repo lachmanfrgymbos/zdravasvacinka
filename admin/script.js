@@ -2,15 +2,17 @@ if (!localStorage.getItem('logged')) {
   window.location.href = 'login.html';
 }
 
-const supabaseUrl = 'https://qtilqibkdouaztehzauj.supabase.co';
+const supabaseUrl =
+  'https://qtilqibkdouaztehzauj.supabase.co';
 
 const supabaseKey =
   'sb_publishable_Jpe7m1sYMWkT7FEsLn2Unw_IR3Joykt';
 
-const supabaseClient = supabase.createClient(
-  supabaseUrl,
-  supabaseKey
-);
+const supabaseClient =
+  supabase.createClient(
+    supabaseUrl,
+    supabaseKey
+  );
 
 let editingRecipeId = null;
 
@@ -21,17 +23,22 @@ let editingRecipeId = null;
 ========================= */
 
 const feedbackList =
-  document.getElementById('feedback-list');
+  document.getElementById(
+    'feedback-list'
+  );
 
 async function loadFeedback() {
 
   if (!feedbackList) return;
 
-  const { data, error } = await supabaseClient
-    .from('feedback')
-    .select('*')
-    .order('id', { ascending: false })
-    .limit(5);
+  const { data, error } =
+    await supabaseClient
+      .from('feedback')
+      .select('*')
+      .order('id', {
+        ascending: false
+      })
+      .limit(5);
 
   if (error) {
     console.error(error);
@@ -42,11 +49,13 @@ async function loadFeedback() {
 
   data.forEach(item => {
 
-    const div = document.createElement('div');
+    const div =
+      document.createElement('div');
 
     div.classList.add('feedback-item');
 
-    div.innerText = `„${item.message}”`;
+    div.innerText =
+      `„${item.message}”`;
 
     feedbackList.appendChild(div);
 
@@ -63,131 +72,230 @@ loadFeedback();
 ========================= */
 
 const recipeForm =
-  document.getElementById('recipe-form');
+  document.getElementById(
+    'recipe-form'
+  );
 
 if (recipeForm) {
 
-  recipeForm.addEventListener('submit', async (e) => {
+  recipeForm.addEventListener(
+    'submit',
+    async (e) => {
 
-    e.preventDefault();
+      e.preventDefault();
 
-    const title =
-      document.getElementById('title').value;
 
-    const description =
-      document.getElementById('description').value;
 
-    const ingredients =
-      document
-        .getElementById('ingredients')
-        .value
-        .split('\n')
-        .map(item => item.trim())
-        .filter(item => item !== '');
+      /* =========================
+         VALUES
+      ========================= */
 
-    const steps =
-      document
-        .getElementById('steps')
-        .value
-        .split('\n')
-        .map(item => item.trim())
-        .filter(item => item !== '');
+      const title =
+        document
+          .getElementById('title')
+          .value;
 
-    const prep_time =
-      document.getElementById('prep_time').value;
+      const description =
+        document
+          .getElementById(
+            'description'
+          )
+          .value;
 
-    const kcal =
-      document.getElementById('kcal').value;
+      const ingredients =
+        document
+          .getElementById(
+            'ingredients'
+          )
+          .value
+          .split('\n')
+          .map(item => item.trim())
+          .filter(
+            item => item !== ''
+          );
 
-    const proteins =
-      document.getElementById('proteins').value;
+      const steps =
+        document
+          .getElementById('steps')
+          .value
+          .split('\n')
+          .map(item => item.trim())
+          .filter(
+            item => item !== ''
+          );
 
-    const carbs =
-      document.getElementById('carbs').value;
+      const prep_time =
+        document
+          .getElementById(
+            'prep_time'
+          )
+          .value;
 
-    const fats =
-      document.getElementById('fats').value;
+      const kcal =
+        document
+          .getElementById('kcal')
+          .value;
 
-    const category =
-      document.getElementById('category').value;
+      const proteins =
+        document
+          .getElementById(
+            'proteins'
+          )
+          .value;
 
-    let error;
+      const carbs =
+        document
+          .getElementById(
+            'carbs'
+          )
+          .value;
 
-    if (editingRecipeId) {
+      const fats =
+        document
+          .getElementById('fats')
+          .value;
 
-      const response = await supabaseClient
-        .from('recipes')
-        .update({
-          title,
-          description,
-          ingredients,
-          steps,
-          prep_time,
-          kcal,
-          proteins,
-          carbs,
-          fats,
-          category
-        })
-        .eq('id', editingRecipeId);
+      const category =
+        document
+          .getElementById(
+            'category'
+          )
+          .value
+          .split('\n')
+          .map(item => item.trim())
+          .filter(
+            item => item !== ''
+          );
 
-      error = response.error;
 
-    } else {
 
-      const response = await supabaseClient
-        .from('recipes')
-        .insert([
-          {
-            title,
-            description,
-            ingredients,
-            steps,
-            prep_time,
-            kcal,
-            proteins,
-            carbs,
-            fats,
-            category
-          }
-        ]);
+      let error;
 
-      error = response.error;
+
+
+      /* =========================
+         UPDATE
+      ========================= */
+
+      if (editingRecipeId) {
+
+        const response =
+          await supabaseClient
+            .from('recipes')
+            .update({
+
+              title,
+              description,
+              ingredients,
+              steps,
+              prep_time,
+              kcal,
+              proteins,
+              carbs,
+              fats,
+              category
+
+            })
+            .eq(
+              'id',
+              editingRecipeId
+            );
+
+        error = response.error;
+
+      }
+
+
+
+      /* =========================
+         INSERT
+      ========================= */
+
+      else {
+
+        const response =
+          await supabaseClient
+            .from('recipes')
+            .insert([{
+
+              title,
+              description,
+              ingredients,
+              steps,
+              prep_time,
+              kcal,
+              proteins,
+              carbs,
+              fats,
+              category
+
+            }]);
+
+        error = response.error;
+
+      }
+
+
+
+      /* =========================
+         ERROR
+      ========================= */
+
+      if (error) {
+
+        console.error(error);
+
+        alert(
+          'Nepovedlo se uložit recept'
+        );
+
+        return;
+
+      }
+
+
+
+      /* =========================
+         SUCCESS
+      ========================= */
+
+      alert('Recept uložen 😄');
+
+      recipeForm.reset();
+
+      editingRecipeId = null;
+
+      loadRecipes();
+
+      loadStats();
 
     }
-
-    if (error) {
-      console.error(error);
-
-      alert('Nepovedlo se uložit recept');
-      return;
-    }
-
-    alert('Recept uložen 😄');
-
-    recipeForm.reset();
-
-    editingRecipeId = null;
-
-    loadRecipes();
-
-  });
+  );
 
 }
 
 
 
+/* =========================
+   RECIPES LIST
+========================= */
+
 const recipesList =
-  document.getElementById('recipes-list');
+  document.getElementById(
+    'recipes-list'
+  );
 
 async function loadRecipes() {
 
   if (!recipesList) return;
 
-  const { data, error } = await supabaseClient
-    .from('recipes')
-    .select('*')
-    .order('id', { ascending: false });
+  const { data, error } =
+    await supabaseClient
+      .from('recipes')
+      .select('*')
+      .order('id', {
+        ascending: false
+      });
 
   if (error) {
     console.error(error);
@@ -198,9 +306,12 @@ async function loadRecipes() {
 
   data.forEach(recipe => {
 
-    const div = document.createElement('div');
+    const div =
+      document.createElement('div');
 
-    div.classList.add('feedback-item');
+    div.classList.add(
+      'feedback-item'
+    );
 
     div.innerHTML = `
 
@@ -208,21 +319,27 @@ async function loadRecipes() {
 
         <div>
 
-          <strong>${recipe.title}</strong>
+          <strong>
+            ${recipe.title}
+          </strong>
 
           <br>
 
           <small>
-            ${recipe.category || 'Bez kategorie'}
-          </small>
-
-          <br>
-
-          <small>
-            ${recipe.ingredients?.length || 0} ingrediencí
+            ${
+              Array.isArray(
+                recipe.category
+              )
+                ? recipe.category.join(
+                    ' • '
+                  )
+                : 'Bez kategorie'
+            }
           </small>
 
         </div>
+
+
 
         <div class="recipe-actions">
 
@@ -232,6 +349,8 @@ async function loadRecipes() {
           >
             Upravit
           </button>
+
+
 
           <button
             class="delete-btn"
@@ -256,6 +375,10 @@ loadRecipes();
 
 
 
+/* =========================
+   DELETE RECIPE
+========================= */
+
 async function deleteRecipe(id) {
 
   const confirmed = confirm(
@@ -264,72 +387,136 @@ async function deleteRecipe(id) {
 
   if (!confirmed) return;
 
-  const { error } = await supabaseClient
-    .from('recipes')
-    .delete()
-    .eq('id', id);
+  const { error } =
+    await supabaseClient
+      .from('recipes')
+      .delete()
+      .eq('id', id);
 
   if (error) {
+
     console.error(error);
 
-    alert('Nepovedlo se smazat recept');
+    alert(
+      'Nepovedlo se smazat recept'
+    );
+
     return;
+
   }
 
   loadRecipes();
+
+  loadStats();
 
 }
 
 
 
+/* =========================
+   EDIT RECIPE
+========================= */
+
 async function editRecipe(id) {
 
-  const { data, error } = await supabaseClient
-    .from('recipes')
-    .select('*')
-    .eq('id', id)
-    .single();
+  const { data, error } =
+    await supabaseClient
+      .from('recipes')
+      .select('*')
+      .eq('id', id)
+      .single();
 
   if (error) {
     console.error(error);
     return;
   }
 
-  document.getElementById('title').value =
+
+
+  document.getElementById(
+    'title'
+  ).value =
     data.title || '';
 
-  document.getElementById('description').value =
+  document.getElementById(
+    'description'
+  ).value =
     data.description || '';
 
-  document.getElementById('ingredients').value =
-    Array.isArray(data.ingredients)
+
+
+  document.getElementById(
+    'ingredients'
+  ).value =
+
+    Array.isArray(
+      data.ingredients
+    )
+
       ? data.ingredients.join('\n')
+
       : '';
 
-  document.getElementById('steps').value =
-    Array.isArray(data.steps)
+
+
+  document.getElementById(
+    'steps'
+  ).value =
+
+    Array.isArray(
+      data.steps
+    )
+
       ? data.steps.join('\n')
+
       : '';
 
-  document.getElementById('prep_time').value =
+
+
+  document.getElementById(
+    'prep_time'
+  ).value =
     data.prep_time || '';
 
-  document.getElementById('kcal').value =
+  document.getElementById(
+    'kcal'
+  ).value =
     data.kcal || '';
 
-  document.getElementById('proteins').value =
+  document.getElementById(
+    'proteins'
+  ).value =
     data.proteins || '';
 
-  document.getElementById('carbs').value =
+  document.getElementById(
+    'carbs'
+  ).value =
     data.carbs || '';
 
-  document.getElementById('fats').value =
+  document.getElementById(
+    'fats'
+  ).value =
     data.fats || '';
 
-  document.getElementById('category').value =
-    data.category || '';
+
+
+  document.getElementById(
+    'category'
+  ).value =
+
+    Array.isArray(
+      data.category
+    )
+
+      ? data.category.join('\n')
+
+      : '';
+
+
 
   editingRecipeId = id;
+
+
 
   window.scrollTo({
     top: 0,
@@ -345,16 +532,21 @@ async function editRecipe(id) {
 ========================= */
 
 const allFeedback =
-  document.getElementById('all-feedback');
+  document.getElementById(
+    'all-feedback'
+  );
 
 async function loadAllFeedback() {
 
   if (!allFeedback) return;
 
-  const { data, error } = await supabaseClient
-    .from('feedback')
-    .select('*')
-    .order('id', { ascending: false });
+  const { data, error } =
+    await supabaseClient
+      .from('feedback')
+      .select('*')
+      .order('id', {
+        ascending: false
+      });
 
   if (error) {
     console.error(error);
@@ -365,15 +557,20 @@ async function loadAllFeedback() {
 
   data.forEach(item => {
 
-    const div = document.createElement('div');
+    const div =
+      document.createElement('div');
 
-    div.classList.add('feedback-box');
+    div.classList.add(
+      'feedback-box'
+    );
 
     div.innerHTML = `
 
       <div class="feedback-top">
 
-        <span>#${item.id}</span>
+        <span>
+          #${item.id}
+        </span>
 
         <button
           class="delete-btn"
@@ -384,7 +581,9 @@ async function loadAllFeedback() {
 
       </div>
 
-      <p>${item.message}</p>
+      <p>
+        ${item.message}
+      </p>
 
     `;
 
@@ -398,6 +597,10 @@ loadAllFeedback();
 
 
 
+/* =========================
+   DELETE FEEDBACK
+========================= */
+
 async function deleteFeedback(id) {
 
   const confirmed = confirm(
@@ -406,19 +609,26 @@ async function deleteFeedback(id) {
 
   if (!confirmed) return;
 
-  const { error } = await supabaseClient
-    .from('feedback')
-    .delete()
-    .eq('id', id);
+  const { error } =
+    await supabaseClient
+      .from('feedback')
+      .delete()
+      .eq('id', id);
 
   if (error) {
+
     console.error(error);
 
-    alert('Nepovedlo se smazat feedback');
+    alert(
+      'Nepovedlo se smazat feedback'
+    );
+
     return;
+
   }
 
   loadAllFeedback();
+
   loadFeedback();
 
 }
@@ -430,28 +640,42 @@ async function deleteFeedback(id) {
 ========================= */
 
 const feedbackCount =
-  document.getElementById('feedback-count');
+  document.getElementById(
+    'feedback-count'
+  );
 
 const recipesCount =
-  document.getElementById('recipes-count');
+  document.getElementById(
+    'recipes-count'
+  );
 
 async function loadStats() {
 
-  if (!feedbackCount || !recipesCount) return;
+  if (
+    !feedbackCount
+    ||
+    !recipesCount
+  ) return;
 
-  const feedbackResponse = await supabaseClient
-    .from('feedback')
-    .select('*', {
-      count: 'exact',
-      head: true
-    });
 
-  const recipesResponse = await supabaseClient
-    .from('recipes')
-    .select('*', {
-      count: 'exact',
-      head: true
-    });
+
+  const feedbackResponse =
+    await supabaseClient
+      .from('feedback')
+      .select('*', {
+        count: 'exact',
+        head: true
+      });
+
+  const recipesResponse =
+    await supabaseClient
+      .from('recipes')
+      .select('*', {
+        count: 'exact',
+        head: true
+      });
+
+
 
   feedbackCount.innerText =
     feedbackResponse.count || 0;
@@ -471,22 +695,22 @@ loadStats();
 
 async function loadVisits() {
 
-  const { count, error } = await supabaseClient
-    .from('visits')
-    .select('*', {
-      count: 'exact',
-      head: true
-    });
+  const { count, error } =
+    await supabaseClient
+      .from('visits')
+      .select('*', {
+        count: 'exact',
+        head: true
+      });
 
   if (!error) {
 
-    const visitsCard =
-      document.querySelector('.card h2');
-
-    if (visitsCard) {
-      visitsCard.innerText =
-        count.toLocaleString('cs-CZ');
-    }
+    document.querySelector(
+      '.card h2'
+    ).innerText =
+      count.toLocaleString(
+        'cs-CZ'
+      );
 
   }
 
@@ -500,9 +724,11 @@ loadVisits();
    GITHUB LAST UPDATE
 ========================= */
 
-const owner = "lachmanfrgymbos";
+const owner =
+  'lachmanfrgymbos';
 
-const repo = "zdravasvacinka";
+const repo =
+  'zdravasvacinka';
 
 fetch(
   `https://api.github.com/repos/${owner}/${repo}/commits`
@@ -510,16 +736,26 @@ fetch(
   .then(res => res.json())
   .then(data => {
 
-    const commitDate = new Date(
-      data[0].commit.committer.date
-    );
+    const commitDate =
+      new Date(
+        data[0]
+          .commit
+          .committer
+          .date
+      );
 
-    const now = new Date();
+    const now =
+      new Date();
 
     const diff =
-      Math.floor((now - commitDate) / 1000);
+      Math.floor(
+        (now - commitDate) / 1000
+      );
 
-    let value, unit;
+    let value;
+    let unit;
+
+
 
     if (diff < 60) {
 
@@ -527,46 +763,53 @@ fetch(
 
       unit =
         value === 1
-          ? "sekundou"
-          : "sekundami";
-
-    } else if (diff < 3600) {
-
-      value = Math.floor(diff / 60);
-
-      unit =
-        value === 1
-          ? "minutou"
-          : "minutami";
-
-    } else if (diff < 86400) {
-
-      value = Math.floor(diff / 3600);
-
-      unit =
-        value === 1
-          ? "hodinou"
-          : "hodinami";
-
-    } else {
-
-      value = Math.floor(diff / 86400);
-
-      unit =
-        value === 1
-          ? "dnem"
-          : "dny";
+          ? 'sekundou'
+          : 'sekundami';
 
     }
 
-    const lastUpdate =
-      document.getElementById('last-update');
+    else if (diff < 3600) {
 
-    if (lastUpdate) {
+      value =
+        Math.floor(diff / 60);
 
-      lastUpdate.textContent =
-        `Poslední update webu před ${value} ${unit}.`;
+      unit =
+        value === 1
+          ? 'minutou'
+          : 'minutami';
 
     }
+
+    else if (diff < 86400) {
+
+      value =
+        Math.floor(diff / 3600);
+
+      unit =
+        value === 1
+          ? 'hodinou'
+          : 'hodinami';
+
+    }
+
+    else {
+
+      value =
+        Math.floor(diff / 86400);
+
+      unit =
+        value === 1
+          ? 'dnem'
+          : 'dny';
+
+    }
+
+
+
+    document.getElementById(
+      'last-update'
+    ).textContent =
+
+      `Poslední update webu před ${value} ${unit}.`;
 
   });

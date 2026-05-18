@@ -247,8 +247,9 @@ function renderRecipes(recipes) {
 
         <div class="recipe-category">
           ${
-            recipe.category?.join(' • ')
-            || 'Recept'
+            Array.isArray(recipe.category)
+              ? recipe.category.join(' • ')
+              : 'Recept'
           }
         </div>
 

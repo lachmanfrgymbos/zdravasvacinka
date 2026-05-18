@@ -451,3 +451,23 @@ nav a.active{
 
   transform:translateY(-1px);
 }
+
+.dashboard-link{
+  display:inline-block;
+
+  margin-top:14px;
+
+  color:#5c8f3b;
+
+  font-weight:600;
+
+  text-decoration:none;
+
+  transition:0.25s ease;
+}
+
+.dashboard-link:hover{
+  transform:translateX(4px);
+
+  color:#7bbf59;
+}

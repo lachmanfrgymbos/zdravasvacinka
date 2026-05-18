@@ -39,3 +39,88 @@ async function loadFeedback() {
 }
 
 loadFeedback();
+
+const recipeForm = document.getElementById('recipe-form');
+
+if (recipeForm) {
+
+  recipeForm.addEventListener('submit', async (e) => {
+
+    e.preventDefault();
+
+    const title = document.getElementById('title').value;
+
+    const description = document.getElementById('description').value;
+
+    const ingredients = document.getElementById('ingredients').value;
+
+    const steps = document.getElementById('steps').value;
+
+    const category = document.getElementById('category').value;
+
+    const { error } = await supabaseClient
+      .from('recipes')
+      .insert([
+        {
+          title,
+          description,
+          ingredients,
+          steps,
+          category
+        }
+      ]);
+
+    if (error) {
+      console.error(error);
+
+      alert('Nepovedlo se uložit recept');
+      return;
+    }
+
+    alert('Recept uložen 😄');
+
+    recipeForm.reset();
+
+    loadRecipes();
+
+  });
+
+}
+
+const recipesList = document.getElementById('recipes-list');
+
+async function loadRecipes() {
+
+  if (!recipesList) return;
+
+  const { data, error } = await supabaseClient
+    .from('recipes')
+    .select('*')
+    .order('id', { ascending: false });
+
+  if (error) {
+    console.error(error);
+    return;
+  }
+
+  recipesList.innerHTML = '';
+
+  data.forEach(recipe => {
+
+    const div = document.createElement('div');
+
+    div.classList.add('feedback-item');
+
+    div.innerHTML = `
+      <strong>${recipe.title}</strong>
+      <br>
+      <small>${recipe.category || 'Bez kategorie'}</small>
+    `;
+
+    recipesList.appendChild(div);
+
+  });
+
+}
+
+loadRecipes();

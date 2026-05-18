@@ -24,44 +24,45 @@
     <p id="error" class="error"></p>
   </div>
 
-<script>
-const supabaseUrl = 'https://qtilqibkdouaztehzauj.supabase.co';
-const supabaseKey = 'sb_publishable_Jpe7m1sYMWkT7FEsLn2Unw_IR3Joykt';
+  <!-- LOGIN JS -->
+  <script>
+    const supabaseUrl = 'https://qtilqibkdouaztehzauj.supabase.co';
+    const supabaseKey = 'sb_publishable_Jpe7m1sYMWkT7FEsLn2Unw_IR3Joykt';
 
-const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey);
+    const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey);
 
-const email = document.getElementById('email');
-const password = document.getElementById('password');
-const loginBtn = document.getElementById('loginBtn');
-const errorEl = document.getElementById('error');
+    const email = document.getElementById('email');
+    const password = document.getElementById('password');
+    const loginBtn = document.getElementById('loginBtn');
+    const errorEl = document.getElementById('error');
 
-/* pokud už je přihlášený → admin */
-(async () => {
-  const { data } = await supabaseClient.auth.getSession();
+    // pokud už je přihlášený → rovnou admin
+    (async () => {
+      const { data } = await supabaseClient.auth.getSession();
 
-  if (data.session) {
-    window.location.href = 'admin.html';
-  }
-})();
+      if (data.session) {
+        window.location.href = 'admin.html';
+      }
+    })();
 
-loginBtn.addEventListener('click', login);
+    loginBtn.addEventListener('click', login);
 
-async function login() {
-  errorEl.textContent = '';
+    async function login() {
+      errorEl.textContent = '';
 
-  const { data, error } = await supabaseClient.auth.signInWithPassword({
-    email: email.value,
-    password: password.value
-  });
+      const { data, error } = await supabaseClient.auth.signInWithPassword({
+        email: email.value,
+        password: password.value
+      });
 
-  if (error) {
-    errorEl.textContent = 'Špatný email nebo heslo';
-    return;
-  }
+      if (error) {
+        errorEl.textContent = 'Špatný email nebo heslo';
+        return;
+      }
 
-  window.location.href = 'admin.html';
-}
-</script>
+      window.location.href = 'admin.html';
+    }
+  </script>
 
 </body>
 </html>

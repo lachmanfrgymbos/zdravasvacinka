@@ -111,11 +111,37 @@ async function loadRecipes() {
 
     div.classList.add('feedback-item');
 
-    div.innerHTML = `
+div.innerHTML = `
+
+  <div class="recipe-top">
+
+    <div>
       <strong>${recipe.title}</strong>
       <br>
       <small>${recipe.category || 'Bez kategorie'}</small>
-    `;
+    </div>
+
+    <div class="recipe-actions">
+
+      <button
+        class="edit-btn"
+        onclick="editRecipe(${recipe.id})"
+      >
+        Upravit
+      </button>
+
+      <button
+        class="delete-btn"
+        onclick="deleteRecipe(${recipe.id})"
+      >
+        Smazat
+      </button>
+
+    </div>
+
+  </div>
+
+`;
 
     recipesList.appendChild(div);
 

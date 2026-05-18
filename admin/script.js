@@ -1,3 +1,11 @@
+(async () => {
+  const { data } = await supabaseClient.auth.getSession();
+
+  if (!data.session) {
+    window.location.href = 'login.html';
+  }
+})();
+
 const supabaseUrl = 'https://qtilqibkdouaztehzauj.supabase.co';
 
 const supabaseKey = 'sb_publishable_Jpe7m1sYMWkT7FEsLn2Unw_IR3Joykt';

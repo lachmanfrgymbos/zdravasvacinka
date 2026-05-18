@@ -1,10 +1,3 @@
-(async () => {
-  const { data } = await supabaseClient.auth.getSession();
-
-  if (!data.session) {
-    window.location.href = 'login.html';
-  }
-})();
 
 const supabaseUrl = 'https://qtilqibkdouaztehzauj.supabase.co';
 
@@ -389,26 +382,3 @@ async function loadVisits() {
 }
 
 loadVisits();
-
-const loginBtn = document.getElementById('loginBtn');
-
-if (loginBtn) {
-  loginBtn.addEventListener('click', login);
-}
-
-async function login() {
-  const email = document.getElementById('email').value;
-  const password = document.getElementById('password').value;
-
-  const { data, error } = await supabaseClient.auth.signInWithPassword({
-    email,
-    password
-  });
-
-  if (error) {
-    alert('Špatné přihlášení');
-    return;
-  }
-
-  window.location.href = 'admin.html';
-}

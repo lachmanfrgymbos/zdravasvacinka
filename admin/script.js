@@ -80,6 +80,21 @@ if (recipeForm) {
     const steps =
       document.getElementById('steps').value;
 
+    const prep_time =
+      document.getElementById('prep_time').value;
+
+    const kcal =
+      document.getElementById('kcal').value;
+
+    const proteins =
+      document.getElementById('proteins').value;
+
+    const carbs =
+      document.getElementById('carbs').value;
+   
+    const fats =
+      document.getElementById('fats').value;
+
     const category =
       document.getElementById('category').value;
 
@@ -94,6 +109,11 @@ if (recipeForm) {
           description,
           ingredients,
           steps,
+          prep_time,
+          kcal,
+          proteins,
+          carbs,
+          fats,
           category
         })
         .eq('id', editingRecipeId);
@@ -251,6 +271,21 @@ async function editRecipe(id) {
   document.getElementById('steps').value =
     data.steps || '';
 
+  document.getElementById('prep_time').value =
+    data.prep_time || '';
+
+  document.getElementById('kcal').value =
+    data.kcal || '';
+
+  document.getElementById('proteins').value =
+    data.proteins || '';
+
+  document.getElementById('carbs').value =
+    data.carbs || '';
+
+  document.getElementById('fats').value =
+    data.fats || '';
+  
   document.getElementById('category').value =
     data.category || '';
 

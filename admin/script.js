@@ -50,17 +50,74 @@ if (recipeForm) {
 
     e.preventDefault();
 
-    const title = document.getElementById('title').value;
+    const title =
+      document.getElementById('title').value;
 
-    const description = document.getElementById('description').value;
+    const description =
+      document.getElementById('description').value;
 
-    const ingredients = document.getElementById('ingredients').value;
+    const ingredients =
+      document.getElementById('ingredients').value;
 
-    const steps = document.getElementById('steps').value;
+    const steps =
+      document.getElementById('steps').value;
 
-    const category = document.getElementById('category').value;
+    const category =
+      document.getElementById('category').value;
 
-   let error;
+    let error;
+
+    if (editingRecipeId) {
+
+      const response = await supabaseClient
+        .from('recipes')
+        .update({
+          title,
+          description,
+          ingredients,
+          steps,
+          category
+        })
+        .eq('id', editingRecipeId);
+
+      error = response.error;
+
+    } else {
+
+      const response = await supabaseClient
+        .from('recipes')
+        .insert([
+          {
+            title,
+            description,
+            ingredients,
+            steps,
+            category
+          }
+        ]);
+
+      error = response.error;
+
+    }
+
+    if (error) {
+      console.error(error);
+
+      alert('Nepovedlo se uložit recept');
+      return;
+    }
+
+    alert('Recept uložen 😄');
+
+    recipeForm.reset();
+
+    editingRecipeId = null;
+
+    loadRecipes();
+
+  });
+
+}
 
 if (editingRecipeId) {
 

@@ -385,3 +385,28 @@ async function loadVisits() {
 }
 
 loadVisits();
+
+const owner = "lachmanfrgymbos";
+const repo = "zdravasvacinka";
+
+fetch(`https://api.github.com/repos/${owner}/${repo}/commits`)
+  .then(res => res.json())
+  .then(data => {
+    const commitDate = new Date(data[0].commit.committer.date);
+    const now = new Date();
+    const diffHours = Math.floor((now - commitDate) / (1000 * 60 * 60));
+
+         let text = "";
+
+    if (diff < 60) {
+      text = `Poslední update webu před ${diff} sekundami.`;
+    } else if (diff < 3600) {
+      text = `Poslední update webu před ${Math.floor(diff / 60)} minutami.`;
+    } else if (diff < 86400) {
+      text = `Poslední update webu před ${Math.floor(diff / 3600)} hodinami.`;
+    } else {
+      text = `Poslední update webu před ${Math.floor(diff / 86400)} dny.`;
+    }
+
+    document.getElementById("last-update").textContent = text;
+  });

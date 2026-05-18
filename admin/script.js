@@ -4,7 +4,8 @@ if (!localStorage.getItem('logged')) {
 
 const supabaseUrl = 'https://qtilqibkdouaztehzauj.supabase.co';
 
-const supabaseKey = 'sb_publishable_Jpe7m1sYMWkT7FEsLn2Unw_IR3Joykt';
+const supabaseKey =
+  'sb_publishable_Jpe7m1sYMWkT7FEsLn2Unw_IR3Joykt';
 
 const supabaseClient = supabase.createClient(
   supabaseUrl,
@@ -19,7 +20,8 @@ let editingRecipeId = null;
    DASHBOARD FEEDBACK
 ========================= */
 
-const feedbackList = document.getElementById('feedback-list');
+const feedbackList =
+  document.getElementById('feedback-list');
 
 async function loadFeedback() {
 
@@ -60,7 +62,8 @@ loadFeedback();
    RECIPES
 ========================= */
 
-const recipeForm = document.getElementById('recipe-form');
+const recipeForm =
+  document.getElementById('recipe-form');
 
 if (recipeForm) {
 
@@ -75,10 +78,20 @@ if (recipeForm) {
       document.getElementById('description').value;
 
     const ingredients =
-      document.getElementById('ingredients').value;
+      document
+        .getElementById('ingredients')
+        .value
+        .split('\n')
+        .map(item => item.trim())
+        .filter(item => item !== '');
 
     const steps =
-      document.getElementById('steps').value;
+      document
+        .getElementById('steps')
+        .value
+        .split('\n')
+        .map(item => item.trim())
+        .filter(item => item !== '');
 
     const prep_time =
       document.getElementById('prep_time').value;
@@ -91,7 +104,7 @@ if (recipeForm) {
 
     const carbs =
       document.getElementById('carbs').value;
-   
+
     const fats =
       document.getElementById('fats').value;
 
@@ -124,10 +137,20 @@ if (recipeForm) {
 
       const response = await supabaseClient
         .from('recipes')
-       if (!sessionStorage.getItem('visited')) {
-  trackVisit();
-  sessionStorage.setItem('visited', 'true');
-}
+        .insert([
+          {
+            title,
+            description,
+            ingredients,
+            steps,
+            prep_time,
+            kcal,
+            proteins,
+            carbs,
+            fats,
+            category
+          }
+        ]);
 
       error = response.error;
 
@@ -154,7 +177,8 @@ if (recipeForm) {
 
 
 
-const recipesList = document.getElementById('recipes-list');
+const recipesList =
+  document.getElementById('recipes-list');
 
 async function loadRecipes() {
 
@@ -183,9 +207,21 @@ async function loadRecipes() {
       <div class="recipe-top">
 
         <div>
+
           <strong>${recipe.title}</strong>
+
           <br>
-          <small>${recipe.category || 'Bez kategorie'}</small>
+
+          <small>
+            ${recipe.category || 'Bez kategorie'}
+          </small>
+
+          <br>
+
+          <small>
+            ${recipe.ingredients?.length || 0} ingrediencí
+          </small>
+
         </div>
 
         <div class="recipe-actions">
@@ -266,10 +302,14 @@ async function editRecipe(id) {
     data.description || '';
 
   document.getElementById('ingredients').value =
-    data.ingredients || '';
+    Array.isArray(data.ingredients)
+      ? data.ingredients.join('\n')
+      : '';
 
   document.getElementById('steps').value =
-    data.steps || '';
+    Array.isArray(data.steps)
+      ? data.steps.join('\n')
+      : '';
 
   document.getElementById('prep_time').value =
     data.prep_time || '';
@@ -285,7 +325,7 @@ async function editRecipe(id) {
 
   document.getElementById('fats').value =
     data.fats || '';
-  
+
   document.getElementById('category').value =
     data.category || '';
 
@@ -304,7 +344,8 @@ async function editRecipe(id) {
    FEEDBACK PAGE
 ========================= */
 
-const allFeedback = document.getElementById('all-feedback');
+const allFeedback =
+  document.getElementById('all-feedback');
 
 async function loadAllFeedback() {
 
@@ -329,6 +370,7 @@ async function loadAllFeedback() {
     div.classList.add('feedback-box');
 
     div.innerHTML = `
+
       <div class="feedback-top">
 
         <span>#${item.id}</span>
@@ -343,6 +385,7 @@ async function loadAllFeedback() {
       </div>
 
       <p>${item.message}</p>
+
     `;
 
     allFeedback.appendChild(div);
@@ -380,6 +423,12 @@ async function deleteFeedback(id) {
 
 }
 
+
+
+/* =========================
+   STATS
+========================= */
+
 const feedbackCount =
   document.getElementById('feedback-count');
 
@@ -392,11 +441,17 @@ async function loadStats() {
 
   const feedbackResponse = await supabaseClient
     .from('feedback')
-    .select('*', { count: 'exact', head: true });
+    .select('*', {
+      count: 'exact',
+      head: true
+    });
 
   const recipesResponse = await supabaseClient
     .from('recipes')
-    .select('*', { count: 'exact', head: true });
+    .select('*', {
+      count: 'exact',
+      head: true
+    });
 
   feedbackCount.innerText =
     feedbackResponse.count || 0;
@@ -408,45 +463,110 @@ async function loadStats() {
 
 loadStats();
 
+
+
+/* =========================
+   VISITS
+========================= */
+
 async function loadVisits() {
+
   const { count, error } = await supabaseClient
     .from('visits')
-    .select('*', { count: 'exact', head: true });
+    .select('*', {
+      count: 'exact',
+      head: true
+    });
 
   if (!error) {
-    document.querySelector('.card h2').innerText =
-      count.toLocaleString('cs-CZ');
+
+    const visitsCard =
+      document.querySelector('.card h2');
+
+    if (visitsCard) {
+      visitsCard.innerText =
+        count.toLocaleString('cs-CZ');
+    }
+
   }
+
 }
 
 loadVisits();
 
+
+
+/* =========================
+   GITHUB LAST UPDATE
+========================= */
+
 const owner = "lachmanfrgymbos";
+
 const repo = "zdravasvacinka";
 
-fetch(`https://api.github.com/repos/${owner}/${repo}/commits`)
+fetch(
+  `https://api.github.com/repos/${owner}/${repo}/commits`
+)
   .then(res => res.json())
   .then(data => {
-    const commitDate = new Date(data[0].commit.committer.date);
+
+    const commitDate = new Date(
+      data[0].commit.committer.date
+    );
+
     const now = new Date();
-    const diff = Math.floor((now - commitDate) / 1000);
+
+    const diff =
+      Math.floor((now - commitDate) / 1000);
 
     let value, unit;
 
     if (diff < 60) {
+
       value = diff;
-      unit = value === 1 ? "sekundou" : "sekundami";
+
+      unit =
+        value === 1
+          ? "sekundou"
+          : "sekundami";
+
     } else if (diff < 3600) {
+
       value = Math.floor(diff / 60);
-      unit = value === 1 ? "minutou" : "minutami";
+
+      unit =
+        value === 1
+          ? "minutou"
+          : "minutami";
+
     } else if (diff < 86400) {
+
       value = Math.floor(diff / 3600);
-      unit = value === 1 ? "hodinou" : "hodinami";
+
+      unit =
+        value === 1
+          ? "hodinou"
+          : "hodinami";
+
     } else {
+
       value = Math.floor(diff / 86400);
-      unit = value === 1 ? "dnem" : "dny";
+
+      unit =
+        value === 1
+          ? "dnem"
+          : "dny";
+
     }
 
-    document.getElementById("last-update").textContent =
-      `Poslední update webu před ${value} ${unit}.`;
+    const lastUpdate =
+      document.getElementById('last-update');
+
+    if (lastUpdate) {
+
+      lastUpdate.textContent =
+        `Poslední update webu před ${value} ${unit}.`;
+
+    }
+
   });

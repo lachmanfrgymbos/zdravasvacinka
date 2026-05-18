@@ -407,3 +407,47 @@ nav a.active{
 
   transform:translateY(-1px);
 }
+
+.recipe-top{
+  display:flex;
+
+  justify-content:space-between;
+
+  align-items:center;
+
+  gap:20px;
+}
+
+.recipe-actions{
+  display:flex;
+
+  gap:10px;
+}
+
+.edit-btn{
+  border:none;
+
+  background:rgba(124,182,92,0.14);
+
+  color:#5c8f3b;
+
+  padding:8px 14px;
+
+  border-radius:12px;
+
+  cursor:pointer;
+
+  font-size:13px;
+
+  font-weight:600;
+
+  transition:0.25s ease;
+}
+
+.edit-btn:hover{
+  background:#7bbf59;
+
+  color:white;
+
+  transform:translateY(-1px);
+}

@@ -1,4 +1,28 @@
-<input id="email" placeholder="email">
-<input id="password" type="password" placeholder="heslo">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+  const supabaseUrl = 'https://qtilqibkdouaztehzauj.supabase.co';
+  const supabaseKey = 'sb_publishable_Jpe7m1sYMWkT7FEsLn2Unw_IR3Joykt';
 
-<button id="loginBtn">Přihlásit</button>
+  const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey);
+
+  const loginBtn = document.getElementById('loginBtn');
+
+  loginBtn.addEventListener('click', login);
+
+  async function login() {
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+
+    const { data, error } = await supabaseClient.auth.signInWithPassword({
+      email,
+      password
+    });
+
+    if (error) {
+      alert('Špatné přihlášení');
+      return;
+    }
+
+    window.location.href = 'admin.html';
+  }
+</script>

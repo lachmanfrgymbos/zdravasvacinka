@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Feedback • Admin</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="background-glow"></div>
+<div class="background-glow second"></div>
+
+<div class="layout">
+
+  <aside class="sidebar">
+
+    <div class="logo">
+      ZDRAVÁ<br>SVAČINKA
+    </div>
+
+    <nav>
+      <a href="index.html">Dashboard</a>
+
+      <a href="recepty.html">
+        Recepty
+      </a>
+
+      <a class="active" href="feedback.html">
+        Feedback
+      </a>
+
+      <a href="#">
+        Newsletter
+      </a>
+
+      <a href="#">
+        Statistiky
+      </a>
+
+      <a href="#">
+        Nastavení
+      </a>
+    </nav>
+
+  </aside>
+
+  <main class="main">
+
+    <div class="topbar">
+      <div>
+        <h1>Feedback</h1>
+        <p>Nápady a návrhy od návštěvníků</p>
+      </div>
+    </div>
+
+    <div class="big-card">
+
+      <h3>Všechny návrhy</h3>
+
+      <div id="all-feedback"></div>
+
+    </div>
+
+  </main>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="script.js"></script>
+
+</body>
+</html>

@@ -1,1 +1,120 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
 
+  <meta charset="UTF-8" />
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+
+  <title>Recepty | Zdravá Svačinka</title>
+
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  />
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  />
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="recipes.css" />
+
+</head>
+
+<body>
+
+  <div class="background-glow"></div>
+  <div class="background-glow second"></div>
+
+  <main class="container">
+
+    <section class="hero">
+
+      <div class="badge">
+        Zdravé recepty
+      </div>
+
+      <h1>
+        Najdi si svou
+        další svačinku.
+      </h1>
+
+      <p class="subtitle">
+        Rychlé, zdravé a chutné recepty
+        na každý den.
+      </p>
+
+      <div class="search-box">
+
+        <input
+          type="text"
+          id="search-input"
+          placeholder="Hledat recept..."
+        />
+
+      </div>
+
+    </section>
+
+
+
+    <section class="filters">
+
+      <button
+        class="filter-btn active"
+        data-category="Vše"
+      >
+        Vše
+      </button>
+
+      <button
+        class="filter-btn"
+        data-category="Vegan"
+      >
+        Vegan
+      </button>
+
+      <button
+        class="filter-btn"
+        data-category="Rychlé"
+      >
+        Rychlé
+      </button>
+
+      <button
+        class="filter-btn"
+        data-category="Proteinové"
+      >
+        Proteinové
+      </button>
+
+    </section>
+
+
+
+    <section
+      class="recipes-grid"
+      id="recipes-grid"
+    >
+    </section>
+
+  </main>
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+  <script src="recipes.js"></script>
+
+</body>
+</html>

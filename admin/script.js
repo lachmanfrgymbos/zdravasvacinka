@@ -373,3 +373,16 @@ async function loadStats() {
 }
 
 loadStats();
+
+async function loadVisits() {
+  const { count, error } = await supabaseClient
+    .from('visits')
+    .select('*', { count: 'exact', head: true });
+
+  if (!error) {
+    document.querySelector('.card h2').innerText =
+      count.toLocaleString('cs-CZ');
+  }
+}
+
+loadVisits();

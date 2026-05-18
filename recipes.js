@@ -1,6 +1,3 @@
-const filtersContainer =
-  document.getElementById('filters');
-
 const supabaseUrl =
   'https://qtilqibkdouaztehzauj.supabase.co';
 
@@ -24,6 +21,10 @@ const recipesGrid =
 
 const searchInput =
   document.getElementById('search-input');
+
+const filtersContainer =
+  document.getElementById('filters');
+
 
 
 /* =========================
@@ -68,12 +69,86 @@ loadRecipes();
 
 
 /* =========================
+   RENDER FILTERS
+========================= */
+
+function renderFilters() {
+
+  const categories = [
+
+    'Vše',
+
+    ...new Set(
+
+      allRecipes
+        .flatMap(
+          recipe => recipe.category || []
+        )
+        .filter(Boolean)
+
+    )
+
+  ];
+
+
+
+  filtersContainer.innerHTML = '';
+
+
+
+  categories.forEach(category => {
+
+    const button =
+      document.createElement('button');
+
+    button.classList.add('filter-btn');
+
+
+
+    if (category === currentCategory) {
+
+      button.classList.add('active');
+
+    }
+
+
+
+    button.innerText = category;
+
+
+
+    button.addEventListener(
+      'click',
+      () => {
+
+        currentCategory = category;
+
+        renderFilters();
+
+        filterRecipes();
+
+      }
+    );
+
+
+
+    filtersContainer.appendChild(button);
+
+  });
+
+}
+
+
+
+/* =========================
    RENDER RECIPES
 ========================= */
 
 function renderRecipes(recipes) {
 
   recipesGrid.innerHTML = '';
+
+
 
   if (recipes.length === 0) {
 
@@ -97,6 +172,8 @@ function renderRecipes(recipes) {
 
   }
 
+
+
   recipes.forEach(recipe => {
 
     const card =
@@ -104,12 +181,15 @@ function renderRecipes(recipes) {
 
     card.classList.add('recipe-card');
 
+
+
     card.addEventListener('click', () => {
 
-  window.location.href =
-    `recipe.html?id=${recipe.id}`;
+      window.location.href =
+        `recipe.html?id=${recipe.id}`;
 
-});
+    });
+
 
 
     /* =========================
@@ -129,19 +209,29 @@ function renderRecipes(recipes) {
 
     let emoji = '🥑';
 
-    if (recipe.category === 'Vegan') {
+
+
+    if (
+      recipe.category?.includes('Vegan')
+    ) {
       emoji = '🌱';
     }
 
-    if (recipe.category === 'Proteinové') {
+    if (
+      recipe.category?.includes('Proteinové')
+    ) {
       emoji = '💪';
     }
 
-    if (recipe.category === 'Rychlé') {
+    if (
+      recipe.category?.includes('Rychlé')
+    ) {
       emoji = '⚡';
     }
 
-    if (recipe.category === 'Sladké') {
+    if (
+      recipe.category?.includes('Sladké')
+    ) {
       emoji = '🍓';
     }
 
@@ -156,7 +246,10 @@ function renderRecipes(recipes) {
         </div>
 
         <div class="recipe-category">
-          ${recipe.category || 'Recept'}
+          ${
+            recipe.category?.join(' • ')
+            || 'Recept'
+          }
         </div>
 
       </div>
@@ -166,6 +259,8 @@ function renderRecipes(recipes) {
       <h2 class="recipe-title">
         ${recipe.title}
       </h2>
+
+
 
       <p class="recipe-description">
         ${recipe.description || ''}
@@ -227,6 +322,8 @@ function renderRecipes(recipes) {
 
     `;
 
+
+
     recipesGrid.appendChild(card);
 
   });
@@ -257,6 +354,8 @@ function filterRecipes() {
       .toLowerCase()
       .trim();
 
+
+
   let filteredRecipes =
     [...allRecipes];
 
@@ -270,7 +369,13 @@ function filterRecipes() {
 
     filteredRecipes =
       filteredRecipes.filter(recipe =>
-        recipe.category === currentCategory
+
+        Array.isArray(recipe.category)
+        &&
+        recipe.category.includes(
+          currentCategory
+        )
+
       );
 
   }
@@ -290,9 +395,13 @@ function filterRecipes() {
           recipe.title
             ?.toLowerCase() || '';
 
+
+
         const description =
           recipe.description
             ?.toLowerCase() || '';
+
+
 
         const ingredients =
           Array.isArray(recipe.ingredients)
@@ -301,10 +410,33 @@ function filterRecipes() {
                 .toLowerCase()
             : '';
 
+
+
+        const categories =
+          Array.isArray(recipe.category)
+            ? recipe.category
+                .join(' ')
+                .toLowerCase()
+            : '';
+
+
+
         return (
-          title.includes(searchValue) ||
-          description.includes(searchValue) ||
+
+          title.includes(searchValue)
+
+          ||
+
+          description.includes(searchValue)
+
+          ||
+
           ingredients.includes(searchValue)
+
+          ||
+
+          categories.includes(searchValue)
+
         );
 
       });
@@ -314,50 +446,5 @@ function filterRecipes() {
 
 
   renderRecipes(filteredRecipes);
-
-}
-
-function renderFilters() {
-
-  const categories = [
-    'Vše',
-    ...new Set(
-      allRecipes
-        .map(recipe => recipe.category)
-        .filter(Boolean)
-    )
-  ];
-
-  filtersContainer.innerHTML = '';
-
-  categories.forEach(category => {
-
-    const button =
-      document.createElement('button');
-
-    button.classList.add('filter-btn');
-
-    if (category === currentCategory) {
-      button.classList.add('active');
-    }
-
-    button.innerText = category;
-
-    button.addEventListener(
-      'click',
-      () => {
-
-        currentCategory = category;
-
-        renderFilters();
-
-        filterRecipes();
-
-      }
-    );
-
-    filtersContainer.appendChild(button);
-
-  });
 
 }

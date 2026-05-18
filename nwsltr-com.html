@@ -21,10 +21,21 @@
 
     body {
       font-family: 'Inter', sans-serif;
-      background: linear-gradient(135deg, #eefcf4 0%, #dff4ff 25%, #d9e8ff 55%, #efe1ff 100%);
-      animation: backgroundShift 18s ease infinite;
-      background-size: 400% 400%;
-      color: #18202b;
+
+      background:
+        linear-gradient(
+          135deg,
+          #fff9e8 0%,
+          #f4fff2 30%,
+          #eefbf5 65%,
+          #f8fff3 100%
+        );
+
+      animation: backgroundShift 20s ease infinite;
+      background-size: 300% 300%;
+
+      color: #243326;
+
       min-height: 100vh;
       overflow: hidden;
       position: relative;
@@ -32,6 +43,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
+
       padding: 24px;
     }
 
@@ -51,25 +63,36 @@
 
     .background-glow {
       position: absolute;
+
       width: 500px;
       height: 500px;
-      background: rgba(129, 181, 255, 0.28);
+
+      background: rgba(124, 182, 92, 0.18);
+
       filter: blur(120px);
+
       border-radius: 50%;
+
       top: -120px;
       left: 50%;
+
       transform: translateX(-50%);
+
       animation: floatGlow 12s ease-in-out infinite;
+
       z-index: 0;
     }
 
     .background-glow.second {
       width: 420px;
       height: 420px;
-      background: rgba(174, 119, 255, 0.22);
+
+      background: rgba(255, 214, 102, 0.16);
+
       right: 5%;
       left: auto;
       top: 40%;
+
       animation: floatGlowReverse 16s ease-in-out infinite;
     }
 
@@ -100,8 +123,9 @@
       width: 100%;
       max-width: 600px;
 
-      background: rgba(255,255,255,0.55);
-      border: 1px solid rgba(255,255,255,0.7);
+      background: rgba(255,255,255,0.58);
+
+      border: 1px solid rgba(124,182,92,0.12);
 
       backdrop-filter: blur(14px);
 
@@ -111,7 +135,7 @@
 
       text-align: center;
 
-      box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+      box-shadow: 0 10px 40px rgba(36,51,38,0.06);
     }
 
     .badge {
@@ -123,7 +147,7 @@
 
       background: rgba(255,255,255,0.6);
 
-      border: 1px solid rgba(255,255,255,0.7);
+      border: 1px solid rgba(124,182,92,0.14);
 
       font-size: 13px;
 
@@ -131,7 +155,7 @@
 
       text-transform: uppercase;
 
-      color: #7c3aed;
+      color: #5c8f3b;
 
       margin-bottom: 24px;
     }
@@ -146,6 +170,8 @@
       font-weight: 700;
 
       letter-spacing: -0.05em;
+
+      color: #243326;
     }
 
     p {
@@ -153,7 +179,7 @@
 
       line-height: 1.7;
 
-      color: rgba(24,32,43,0.72);
+      color: rgba(36,51,38,0.72);
 
       margin-bottom: 40px;
     }
@@ -173,9 +199,9 @@
       font-size: 15px;
       font-weight: 600;
 
-      background: linear-gradient(135deg, #5da8ff, #8b5cf6);
+      background: linear-gradient(135deg, #7bbf59, #5fa86d);
 
-      color: #18202b;
+      color: white;
 
       transition: 0.25s ease;
     }

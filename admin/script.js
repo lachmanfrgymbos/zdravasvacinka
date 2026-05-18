@@ -1,3 +1,6 @@
+if (!localStorage.getItem('logged')) {
+  window.location.href = 'login.html';
+}
 
 const supabaseUrl = 'https://qtilqibkdouaztehzauj.supabase.co';
 

@@ -57,3 +57,11 @@ button.innerText = 'Odesláno ✓';
     button.disabled = false;
   }, 2500);
 });
+
+async function trackVisit() {
+  await supabaseClient
+    .from('visits')
+    .insert([{ created_at: new Date() }]);
+}
+
+trackVisit();

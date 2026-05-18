@@ -327,3 +327,13 @@ nav a.active{
 .recipe-form button:active{
   transform:scale(0.98);
 }
+
+.recipe-form label{
+  font-size:14px;
+
+  font-weight:600;
+
+  color:#5c8f3b;
+
+  margin-bottom:-8px;
+}

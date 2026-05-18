@@ -345,3 +345,31 @@ async function deleteFeedback(id) {
   loadFeedback();
 
 }
+
+const feedbackCount =
+  document.getElementById('feedback-count');
+
+const recipesCount =
+  document.getElementById('recipes-count');
+
+async function loadStats() {
+
+  if (!feedbackCount || !recipesCount) return;
+
+  const feedbackResponse = await supabaseClient
+    .from('feedback')
+    .select('*', { count: 'exact', head: true });
+
+  const recipesResponse = await supabaseClient
+    .from('recipes')
+    .select('*', { count: 'exact', head: true });
+
+  feedbackCount.innerText =
+    feedbackResponse.count || 0;
+
+  recipesCount.innerText =
+    recipesResponse.count || 0;
+
+}
+
+loadStats();

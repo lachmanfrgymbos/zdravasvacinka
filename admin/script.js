@@ -124,3 +124,43 @@ async function loadRecipes() {
 }
 
 loadRecipes();
+
+const allFeedback = document.getElementById('all-feedback');
+
+async function loadAllFeedback() {
+
+  if (!allFeedback) return;
+
+  const { data, error } = await supabaseClient
+    .from('feedback')
+    .select('*')
+    .order('id', { ascending: false });
+
+  if (error) {
+    console.error(error);
+    return;
+  }
+
+  allFeedback.innerHTML = '';
+
+  data.forEach(item => {
+
+    const div = document.createElement('div');
+
+    div.classList.add('feedback-box');
+
+    div.innerHTML = `
+      <div class="feedback-top">
+        <span>#${item.id}</span>
+      </div>
+
+      <p>${item.message}</p>
+    `;
+
+    allFeedback.appendChild(div);
+
+  });
+
+}
+
+loadAllFeedback();

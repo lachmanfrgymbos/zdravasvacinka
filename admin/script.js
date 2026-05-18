@@ -394,19 +394,24 @@ fetch(`https://api.github.com/repos/${owner}/${repo}/commits`)
   .then(data => {
     const commitDate = new Date(data[0].commit.committer.date);
     const now = new Date();
-    const diffHours = Math.floor((now - commitDate) / (1000 * 60 * 60));
+    const diff = Math.floor((now - commitDate) / 1000);
 
-         let text = "";
+    let value, unit;
 
     if (diff < 60) {
-      text = `Poslední update webu před ${diff} sekundami.`;
+      value = diff;
+      unit = value === 1 ? "sekundou" : "sekundami";
     } else if (diff < 3600) {
-      text = `Poslední update webu před ${Math.floor(diff / 60)} minutami.`;
+      value = Math.floor(diff / 60);
+      unit = value === 1 ? "minutou" : "minutami";
     } else if (diff < 86400) {
-      text = `Poslední update webu před ${Math.floor(diff / 3600)} hodinami.`;
+      value = Math.floor(diff / 3600);
+      unit = value === 1 ? "hodinou" : "hodinami";
     } else {
-      text = `Poslední update webu před ${Math.floor(diff / 86400)} dny.`;
+      value = Math.floor(diff / 86400);
+      unit = value === 1 ? "dnem" : "dny";
     }
 
-    document.getElementById("last-update").textContent = text;
+    document.getElementById("last-update").textContent =
+      `Poslední update webu před ${value} ${unit}.`;
   });

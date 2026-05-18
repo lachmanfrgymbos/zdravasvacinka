@@ -1,3 +1,6 @@
+const filtersContainer =
+  document.getElementById('filters');
+
 const supabaseUrl =
   'https://qtilqibkdouaztehzauj.supabase.co';
 
@@ -21,10 +24,6 @@ const recipesGrid =
 
 const searchInput =
   document.getElementById('search-input');
-
-const filterButtons =
-  document.querySelectorAll('.filter-btn');
-
 
 
 /* =========================
@@ -57,6 +56,8 @@ async function loadRecipes() {
   }
 
   allRecipes = data || [];
+
+  renderFilters();
 
   renderRecipes(allRecipes);
 
@@ -246,34 +247,6 @@ searchInput.addEventListener(
 
 
 /* =========================
-   FILTER BUTTONS
-========================= */
-
-filterButtons.forEach(button => {
-
-  button.addEventListener(
-    'click',
-    () => {
-
-      filterButtons.forEach(btn => {
-        btn.classList.remove('active');
-      });
-
-      button.classList.add('active');
-
-      currentCategory =
-        button.dataset.category;
-
-      filterRecipes();
-
-    }
-  );
-
-});
-
-
-
-/* =========================
    FILTER RECIPES
 ========================= */
 
@@ -341,5 +314,50 @@ function filterRecipes() {
 
 
   renderRecipes(filteredRecipes);
+
+}
+
+function renderFilters() {
+
+  const categories = [
+    'Vše',
+    ...new Set(
+      allRecipes
+        .map(recipe => recipe.category)
+        .filter(Boolean)
+    )
+  ];
+
+  filtersContainer.innerHTML = '';
+
+  categories.forEach(category => {
+
+    const button =
+      document.createElement('button');
+
+    button.classList.add('filter-btn');
+
+    if (category === currentCategory) {
+      button.classList.add('active');
+    }
+
+    button.innerText = category;
+
+    button.addEventListener(
+      'click',
+      () => {
+
+        currentCategory = category;
+
+        renderFilters();
+
+        filterRecipes();
+
+      }
+    );
+
+    filtersContainer.appendChild(button);
+
+  });
 
 }

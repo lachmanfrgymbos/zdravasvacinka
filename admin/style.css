@@ -453,21 +453,40 @@ nav a.active{
 }
 
 .dashboard-link{
-  display:inline-block;
+  display:inline-flex;
 
-  margin-top:14px;
+  align-items:center;
 
-  color:#5c8f3b;
+  justify-content:center;
+
+  margin-top:16px;
+
+  padding:12px 18px;
+
+  border-radius:16px;
+
+  background:linear-gradient(
+    135deg,
+    #7bbf59,
+    #5fa86d
+  );
+
+  color:white;
 
   font-weight:600;
 
   text-decoration:none;
 
-  transition:0.25s ease;
+  transition:0.3s ease;
+
+  box-shadow:
+    0 10px 24px rgba(123,191,89,0.22);
 }
 
 .dashboard-link:hover{
-  transform:translateX(4px);
+  transform:translateY(-2px);
 
-  color:#7bbf59;
+  box-shadow:
+    0 16px 34px rgba(123,191,89,0.28);
 }
+

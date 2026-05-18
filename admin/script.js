@@ -398,3 +398,18 @@ async function login() {
 
   window.location.href = 'admin.html';
 }
+
+async function checkAuth() {
+  const { data } = await supabaseClient.auth.getUser();
+
+  if (!data.user) {
+    window.location.href = 'login.html';
+  }
+}
+
+checkAuth();
+
+async function logout() {
+  await supabaseClient.auth.signOut();
+  window.location.href = 'login.html';
+}

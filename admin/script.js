@@ -382,6 +382,12 @@ async function loadVisits() {
 
 loadVisits();
 
+const loginBtn = document.getElementById('loginBtn');
+
+if (loginBtn) {
+  loginBtn.addEventListener('click', login);
+}
+
 async function login() {
   const email = document.getElementById('email').value;
   const password = document.getElementById('password').value;
@@ -397,19 +403,4 @@ async function login() {
   }
 
   window.location.href = 'admin.html';
-}
-
-async function checkAuth() {
-  const { data } = await supabaseClient.auth.getUser();
-
-  if (!data.user) {
-    window.location.href = 'login.html';
-  }
-}
-
-checkAuth();
-
-async function logout() {
-  await supabaseClient.auth.signOut();
-  window.location.href = 'login.html';
 }

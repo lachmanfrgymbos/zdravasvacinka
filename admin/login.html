@@ -2,25 +2,19 @@
 <html lang="cs">
 <head>
   <meta charset="UTF-8">
-  <title>Login • Admin</title>
-
-  <link rel="stylesheet" href="style.css">
+  <title>Login</title>
 </head>
 
-<body class="login-body">
+<body>
 
-  <div class="login-box">
+<h2>Admin login</h2>
 
-    <h1>Admin login</h1>
+<input id="email" placeholder="email">
+<input id="password" type="password" placeholder="heslo">
 
-    <input id="email" placeholder="Email">
-    <input id="password" type="password" placeholder="Heslo">
+<button onclick="login()">Login</button>
 
-    <button onclick="login()">Přihlásit se</button>
-
-    <p id="error"></p>
-
-  </div>
+<p id="error"></p>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
@@ -28,7 +22,10 @@
 const supabaseUrl = 'https://qtilqibkdouaztehzauj.supabase.co';
 const supabaseKey = 'sb_publishable_Jpe7m1sYMWkT7FEsLn2Unw_IR3Joykt';
 
-const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey);
+const supabaseClient = supabase.createClient(
+  supabaseUrl,
+  supabaseKey
+);
 
 async function login() {
 
@@ -41,13 +38,14 @@ async function login() {
   });
 
   if (error) {
-    document.getElementById('error').innerText = 'Špatné údaje 😕';
+    document.getElementById('error').innerText =
+      "Špatné údaje";
     return;
   }
 
   localStorage.setItem('logged', 'true');
 
-  window.location.href = 'index.html';
+  window.location.href = 'admin/index.html';
 }
 </script>
 

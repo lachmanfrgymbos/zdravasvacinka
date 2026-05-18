@@ -150,12 +150,21 @@ async function loadAllFeedback() {
     div.classList.add('feedback-box');
 
     div.innerHTML = `
-      <div class="feedback-top">
-        <span>#${item.id}</span>
-      </div>
+  <div class="feedback-top">
 
-      <p>${item.message}</p>
-    `;
+    <span>#${item.id}</span>
+
+    <button
+      class="delete-btn"
+      onclick="deleteFeedback(${item.id})"
+    >
+      Smazat
+    </button>
+
+  </div>
+
+  <p>${item.message}</p>
+`;
 
     allFeedback.appendChild(div);
 
@@ -164,3 +173,28 @@ async function loadAllFeedback() {
 }
 
 loadAllFeedback();
+
+async function deleteFeedback(id) {
+
+  const confirmed = confirm(
+    'Opravdu chceš smazat feedback?'
+  );
+
+  if (!confirmed) return;
+
+  const { error } = await supabaseClient
+    .from('feedback')
+    .delete()
+    .eq('id', id);
+
+  if (error) {
+    console.error(error);
+
+    alert('Nepovedlo se smazat feedback');
+    return;
+  }
+
+  loadAllFeedback();
+  loadFeedback();
+
+}

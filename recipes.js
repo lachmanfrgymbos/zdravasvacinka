@@ -103,6 +103,12 @@ function renderRecipes(recipes) {
 
     card.classList.add('recipe-card');
 
+    card.addEventListener('click', () => {
+
+  window.location.href =
+    `recipe.html?id=${recipe.id}`;
+
+});
 
 
     /* =========================

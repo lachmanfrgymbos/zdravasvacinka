@@ -224,3 +224,27 @@ async function deleteFeedback(id) {
   loadFeedback();
 
 }
+
+async function deleteRecipe(id) {
+
+  const confirmed = confirm(
+    'Opravdu chceš smazat recept?'
+  );
+
+  if (!confirmed) return;
+
+  const { error } = await supabaseClient
+    .from('recipes')
+    .delete()
+    .eq('id', id);
+
+  if (error) {
+    console.error(error);
+
+    alert('Nepovedlo se smazat recept');
+    return;
+  }
+
+  loadRecipes();
+
+}

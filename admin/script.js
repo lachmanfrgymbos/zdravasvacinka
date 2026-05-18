@@ -9,9 +9,17 @@ const supabaseClient = supabase.createClient(
 
 let editingRecipeId = null;
 
+
+
+/* =========================
+   DASHBOARD FEEDBACK
+========================= */
+
 const feedbackList = document.getElementById('feedback-list');
 
 async function loadFeedback() {
+
+  if (!feedbackList) return;
 
   const { data, error } = await supabaseClient
     .from('feedback')
@@ -41,6 +49,12 @@ async function loadFeedback() {
 }
 
 loadFeedback();
+
+
+
+/* =========================
+   RECIPES
+========================= */
 
 const recipeForm = document.getElementById('recipe-form');
 
@@ -119,65 +133,7 @@ if (recipeForm) {
 
 }
 
-if (editingRecipeId) {
 
-  const response = await supabaseClient
-    .from('recipes')
-    .update({
-      title,
-      description,
-      ingredients,
-      steps,
-      category
-    })
-    .eq('id', editingRecipeId);
-
-  error = response.error;
-
-} else {
-
-  const response = await supabaseClient
-    .from('recipes')
-    .insert([
-      {
-        title,
-        description,
-        ingredients,
-        steps,
-        category
-      }
-    ]);
-
-  error = response.error;
-
-}
-        {
-          title,
-          description,
-          ingredients,
-          steps,
-          category
-        }
-      ]);
-
-    if (error) {
-      console.error(error);
-
-      alert('Nepovedlo se uložit recept');
-      return;
-    }
-
-    alert('Recept uložen 😄');
-
-    recipeForm.reset();
-
-    editingRecipeId = null;
-
-    loadRecipes();
-
-  });
-
-}
 
 const recipesList = document.getElementById('recipes-list');
 
@@ -203,37 +159,37 @@ async function loadRecipes() {
 
     div.classList.add('feedback-item');
 
-div.innerHTML = `
+    div.innerHTML = `
 
-  <div class="recipe-top">
+      <div class="recipe-top">
 
-    <div>
-      <strong>${recipe.title}</strong>
-      <br>
-      <small>${recipe.category || 'Bez kategorie'}</small>
-    </div>
+        <div>
+          <strong>${recipe.title}</strong>
+          <br>
+          <small>${recipe.category || 'Bez kategorie'}</small>
+        </div>
 
-    <div class="recipe-actions">
+        <div class="recipe-actions">
 
-      <button
-        class="edit-btn"
-        onclick="editRecipe(${recipe.id})"
-      >
-        Upravit
-      </button>
+          <button
+            class="edit-btn"
+            onclick="editRecipe(${recipe.id})"
+          >
+            Upravit
+          </button>
 
-      <button
-        class="delete-btn"
-        onclick="deleteRecipe(${recipe.id})"
-      >
-        Smazat
-      </button>
+          <button
+            class="delete-btn"
+            onclick="deleteRecipe(${recipe.id})"
+          >
+            Smazat
+          </button>
 
-    </div>
+        </div>
 
-  </div>
+      </div>
 
-`;
+    `;
 
     recipesList.appendChild(div);
 
@@ -243,79 +199,7 @@ div.innerHTML = `
 
 loadRecipes();
 
-const allFeedback = document.getElementById('all-feedback');
 
-async function loadAllFeedback() {
-
-  if (!allFeedback) return;
-
-  const { data, error } = await supabaseClient
-    .from('feedback')
-    .select('*')
-    .order('id', { ascending: false });
-
-  if (error) {
-    console.error(error);
-    return;
-  }
-
-  allFeedback.innerHTML = '';
-
-  data.forEach(item => {
-
-    const div = document.createElement('div');
-
-    div.classList.add('feedback-box');
-
-    div.innerHTML = `
-  <div class="feedback-top">
-
-    <span>#${item.id}</span>
-
-    <button
-      class="delete-btn"
-      onclick="deleteFeedback(${item.id})"
-    >
-      Smazat
-    </button>
-
-  </div>
-
-  <p>${item.message}</p>
-`;
-
-    allFeedback.appendChild(div);
-
-  });
-
-}
-
-loadAllFeedback();
-
-async function deleteFeedback(id) {
-
-  const confirmed = confirm(
-    'Opravdu chceš smazat feedback?'
-  );
-
-  if (!confirmed) return;
-
-  const { error } = await supabaseClient
-    .from('feedback')
-    .delete()
-    .eq('id', id);
-
-  if (error) {
-    console.error(error);
-
-    alert('Nepovedlo se smazat feedback');
-    return;
-  }
-
-  loadAllFeedback();
-  loadFeedback();
-
-}
 
 async function deleteRecipe(id) {
 
@@ -340,6 +224,8 @@ async function deleteRecipe(id) {
   loadRecipes();
 
 }
+
+
 
 async function editRecipe(id) {
 
@@ -375,5 +261,87 @@ async function editRecipe(id) {
     top: 0,
     behavior: 'smooth'
   });
+
+}
+
+
+
+/* =========================
+   FEEDBACK PAGE
+========================= */
+
+const allFeedback = document.getElementById('all-feedback');
+
+async function loadAllFeedback() {
+
+  if (!allFeedback) return;
+
+  const { data, error } = await supabaseClient
+    .from('feedback')
+    .select('*')
+    .order('id', { ascending: false });
+
+  if (error) {
+    console.error(error);
+    return;
+  }
+
+  allFeedback.innerHTML = '';
+
+  data.forEach(item => {
+
+    const div = document.createElement('div');
+
+    div.classList.add('feedback-box');
+
+    div.innerHTML = `
+      <div class="feedback-top">
+
+        <span>#${item.id}</span>
+
+        <button
+          class="delete-btn"
+          onclick="deleteFeedback(${item.id})"
+        >
+          Smazat
+        </button>
+
+      </div>
+
+      <p>${item.message}</p>
+    `;
+
+    allFeedback.appendChild(div);
+
+  });
+
+}
+
+loadAllFeedback();
+
+
+
+async function deleteFeedback(id) {
+
+  const confirmed = confirm(
+    'Opravdu chceš smazat feedback?'
+  );
+
+  if (!confirmed) return;
+
+  const { error } = await supabaseClient
+    .from('feedback')
+    .delete()
+    .eq('id', id);
+
+  if (error) {
+    console.error(error);
+
+    alert('Nepovedlo se smazat feedback');
+    return;
+  }
+
+  loadAllFeedback();
+  loadFeedback();
 
 }

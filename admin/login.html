@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <title>Login • Admin</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="login-body">
+
+  <div class="login-box">
+
+    <h1>Admin login</h1>
+
+    <input id="email" placeholder="Email">
+    <input id="password" type="password" placeholder="Heslo">
+
+    <button onclick="login()">Přihlásit se</button>
+
+    <p id="error"></p>
+
+  </div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script>
+const supabaseUrl = 'https://qtilqibkdouaztehzauj.supabase.co';
+const supabaseKey = 'TVŮJ_PUBLIC_KEY';
+
+const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey);
+
+async function login() {
+
+  const email = document.getElementById('email').value;
+  const password = document.getElementById('password').value;
+
+  const { data, error } = await supabaseClient.auth.signInWithPassword({
+    email,
+    password
+  });
+
+  if (error) {
+    document.getElementById('error').innerText = 'Špatné údaje 😕';
+    return;
+  }
+
+  localStorage.setItem('logged', 'true');
+
+  window.location.href = 'index.html';
+}
+</script>
+
+</body>
+</html>

@@ -7,6 +7,8 @@ const supabaseClient = supabase.createClient(
   supabaseKey
 );
 
+let editingRecipeId = null;
+
 const feedbackList = document.getElementById('feedback-list');
 
 async function loadFeedback() {
@@ -58,9 +60,40 @@ if (recipeForm) {
 
     const category = document.getElementById('category').value;
 
-    const { error } = await supabaseClient
-      .from('recipes')
-      .insert([
+   let error;
+
+if (editingRecipeId) {
+
+  const response = await supabaseClient
+    .from('recipes')
+    .update({
+      title,
+      description,
+      ingredients,
+      steps,
+      category
+    })
+    .eq('id', editingRecipeId);
+
+  error = response.error;
+
+} else {
+
+  const response = await supabaseClient
+    .from('recipes')
+    .insert([
+      {
+        title,
+        description,
+        ingredients,
+        steps,
+        category
+      }
+    ]);
+
+  error = response.error;
+
+}
         {
           title,
           description,
@@ -80,6 +113,8 @@ if (recipeForm) {
     alert('Recept uložen 😄');
 
     recipeForm.reset();
+
+    editingRecipeId = null;
 
     loadRecipes();
 
@@ -246,5 +281,42 @@ async function deleteRecipe(id) {
   }
 
   loadRecipes();
+
+}
+
+async function editRecipe(id) {
+
+  const { data, error } = await supabaseClient
+    .from('recipes')
+    .select('*')
+    .eq('id', id)
+    .single();
+
+  if (error) {
+    console.error(error);
+    return;
+  }
+
+  document.getElementById('title').value =
+    data.title || '';
+
+  document.getElementById('description').value =
+    data.description || '';
+
+  document.getElementById('ingredients').value =
+    data.ingredients || '';
+
+  document.getElementById('steps').value =
+    data.steps || '';
+
+  document.getElementById('category').value =
+    data.category || '';
+
+  editingRecipeId = id;
+
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
 
 }

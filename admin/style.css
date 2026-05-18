@@ -337,3 +337,45 @@ nav a.active{
 
   margin-bottom:-8px;
 }
+
+.feedback-box{
+  padding:20px;
+
+  border-radius:22px;
+
+  background:rgba(124,182,92,0.08);
+
+  border:1px solid rgba(124,182,92,0.08);
+
+  margin-top:18px;
+
+  transition:0.25s ease;
+}
+
+.feedback-box:hover{
+  transform:translateY(-2px);
+
+  background:rgba(124,182,92,0.12);
+}
+
+.feedback-top{
+  display:flex;
+
+  justify-content:space-between;
+
+  margin-bottom:12px;
+}
+
+.feedback-top span{
+  color:#5c8f3b;
+
+  font-size:14px;
+
+  font-weight:600;
+}
+
+.feedback-box p{
+  line-height:1.7;
+
+  color:#243326;
+}

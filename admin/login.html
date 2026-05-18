@@ -5,16 +5,20 @@
   <title>Login</title>
 </head>
 
-<body>
+<body class="login-body">
 
-<h2>Admin login</h2>
+<div class="login-box">
 
-<input id="email" placeholder="email">
-<input id="password" type="password" placeholder="heslo">
+  <h1>Admin login</h1>
 
-<button onclick="login()">Login</button>
+  <input id="email" placeholder="email">
+  <input id="password" type="password" placeholder="heslo">
 
-<p id="error"></p>
+  <button onclick="login()">Login</button>
+
+  <p id="error"></p>
+
+</div>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 

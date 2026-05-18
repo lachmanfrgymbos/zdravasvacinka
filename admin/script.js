@@ -100,15 +100,10 @@ if (recipeForm) {
 
       const response = await supabaseClient
         .from('recipes')
-        .insert([
-          {
-            title,
-            description,
-            ingredients,
-            steps,
-            category
-          }
-        ]);
+       if (!sessionStorage.getItem('visited')) {
+  trackVisit();
+  sessionStorage.setItem('visited', 'true');
+}
 
       error = response.error;
 

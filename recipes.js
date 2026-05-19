@@ -77,6 +77,7 @@ function renderFilters() {
   const categories = [
 
     'Vše',
+    '❤️ Oblíbené',
 
     ...new Set(
 
@@ -385,14 +386,30 @@ function filterRecipes() {
   let filteredRecipes =
     [...allRecipes];
 
+if (
+  currentCategory ===
+  '❤️ Oblíbené'
+) {
 
+  const favorites =
+    getFavorites();
+
+  filteredRecipes =
+    filteredRecipes.filter(recipe =>
+      favorites.includes(recipe.id)
+    );
+
+}
 
   /* =========================
      CATEGORY FILTER
   ========================= */
 
-  if (currentCategory !== 'Vše') {
-
+ if (
+  currentCategory !== 'Vše'
+  &&
+  currentCategory !== '❤️ Oblíbené'
+)
     filteredRecipes =
       filteredRecipes.filter(recipe =>
 

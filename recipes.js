@@ -311,6 +311,22 @@ function renderRecipes(recipes) {
 
       </div>
 
+<div class="recipe-buttons">
+
+  <button
+    class="qr-btn"
+    onclick="
+      event.stopPropagation();
+      openQR(
+        '${recipe.title}',
+        ${recipe.id}
+      )
+    "
+  >
+    📱 QR kód
+  </button>
+
+</div>
 
       <div class="recipe-nutrition">
 
@@ -548,3 +564,90 @@ function toggleFavorite(id) {
   filterRecipes();
 
 }
+
+/* =========================
+   QR MODAL
+========================= */
+
+const qrModal =
+  document.getElementById(
+    'qr-modal'
+  );
+
+const qrCode =
+  document.getElementById(
+    'qr-code'
+  );
+
+const qrTitle =
+  document.getElementById(
+    'qr-title'
+  );
+
+const closeQR =
+  document.getElementById(
+    'close-qr'
+  );
+
+
+
+function openQR(title, id) {
+
+  qrModal.classList.add('show');
+
+  qrTitle.innerText = title;
+
+  qrCode.innerHTML = '';
+
+
+
+  const recipeUrl =
+    `${window.location.origin}/recipe.html?id=${id}`;
+
+
+
+  new QRCode(qrCode, {
+
+    text: recipeUrl,
+
+    width: 240,
+
+    height: 240
+
+  });
+
+}
+
+
+
+/* =========================
+   CLOSE
+========================= */
+
+closeQR.addEventListener(
+  'click',
+  () => {
+
+    qrModal.classList.remove(
+      'show'
+    );
+
+  }
+);
+
+
+
+qrModal.addEventListener(
+  'click',
+  (e) => {
+
+    if (e.target === qrModal) {
+
+      qrModal.classList.remove(
+        'show'
+      );
+
+    }
+
+  }
+);

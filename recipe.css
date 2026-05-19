@@ -550,3 +550,163 @@ body {
   }
 
 }
+
+/* =========================
+   QR BUTTON
+========================= */
+
+.recipe-actions {
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+}
+
+.mini-qr-btn {
+  width: 42px;
+  height: 42px;
+
+  border-radius: 14px;
+
+  border: 1px solid rgba(112,182,88,0.14);
+
+  background: rgba(255,255,255,0.72);
+
+  backdrop-filter: blur(14px);
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  font-size: 18px;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.22s ease,
+    background 0.22s ease,
+    border 0.22s ease;
+}
+
+.mini-qr-btn:hover {
+  transform: translateY(-2px);
+
+  background: rgba(255,255,255,0.92);
+
+  border:
+    1px solid rgba(112,182,88,0.28);
+}
+
+
+
+/* =========================
+   QR MODAL
+========================= */
+
+.qr-modal {
+  position: fixed;
+
+  inset: 0;
+
+  background: rgba(10,14,11,0.5);
+
+  backdrop-filter: blur(14px);
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  opacity: 0;
+
+  pointer-events: none;
+
+  transition: 0.25s ease;
+
+  z-index: 9999;
+}
+
+.qr-modal.show {
+  opacity: 1;
+
+  pointer-events: auto;
+}
+
+.qr-content {
+  width: 92%;
+  max-width: 360px;
+
+  background: rgba(255,255,255,0.88);
+
+  border:
+    1px solid rgba(112,182,88,0.14);
+
+  border-radius: 30px;
+
+  padding: 34px 28px;
+
+  text-align: center;
+
+  position: relative;
+
+  backdrop-filter: blur(18px);
+
+  animation:
+    qrPop 0.25s ease;
+}
+
+@keyframes qrPop {
+
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+}
+
+.close-qr {
+  position: absolute;
+
+  top: 16px;
+  right: 16px;
+
+  width: 38px;
+  height: 38px;
+
+  border-radius: 12px;
+
+  border: none;
+
+  background: rgba(112,182,88,0.12);
+
+  color: #426234;
+
+  font-size: 16px;
+
+  cursor: pointer;
+}
+
+.qr-content h2 {
+  font-size: 28px;
+
+  margin-bottom: 10px;
+}
+
+.qr-content p {
+  color: rgba(31,45,34,0.68);
+
+  margin-bottom: 24px;
+}
+
+#qr-code {
+  display: flex;
+
+  justify-content: center;
+}

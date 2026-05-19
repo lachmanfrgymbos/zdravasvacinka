@@ -241,6 +241,17 @@ function renderRecipes(recipes) {
 
       <div class="recipe-top">
 
+      <button
+  class="favorite-btn"
+  data-id="${recipe.id}"
+>
+  ${
+    isFavorite(recipe.id)
+      ? '❤️'
+      : '🤍'
+  }
+</button>
+
         <div class="recipe-emoji">
           ${emoji}
         </div>
@@ -323,7 +334,21 @@ function renderRecipes(recipes) {
 
     `;
 
+const favoriteBtn =
+  card.querySelector(
+    '.favorite-btn'
+  );
 
+favoriteBtn.addEventListener(
+  'click',
+  (e) => {
+
+    e.stopPropagation();
+
+    toggleFavorite(recipe.id);
+
+  }
+);
 
     recipesGrid.appendChild(card);
 
@@ -447,5 +472,65 @@ function filterRecipes() {
 
 
   renderRecipes(filteredRecipes);
+
+}
+
+/* =========================
+   FAVORITES
+========================= */
+
+function getFavorites() {
+
+  return JSON.parse(
+    localStorage.getItem('favorites')
+  ) || [];
+
+}
+
+
+
+function isFavorite(id) {
+
+  const favorites =
+    getFavorites();
+
+  return favorites.includes(id);
+
+}
+
+
+
+function toggleFavorite(id) {
+
+  let favorites =
+    getFavorites();
+
+
+
+  if (favorites.includes(id)) {
+
+    favorites =
+      favorites.filter(
+        item => item !== id
+      );
+
+    }
+
+  else {
+
+    favorites.push(id);
+
+  }
+
+
+
+  localStorage.setItem(
+    'favorites',
+    JSON.stringify(favorites)
+  );
+
+
+
+  filterRecipes();
 
 }

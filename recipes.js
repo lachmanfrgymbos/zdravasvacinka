@@ -611,7 +611,7 @@ window.openQR = function(title, id)
 
   });
 
-}
+};
 
 
 

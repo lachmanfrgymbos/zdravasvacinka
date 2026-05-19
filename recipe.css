@@ -194,7 +194,7 @@ body {
 .recipe-top {
   display: flex;
 
-  align-items: center;
+  align-items: flex-start;
 
   justify-content: space-between;
 
@@ -560,7 +560,7 @@ body {
 
   align-items: center;
 
-  gap: 12px;
+  gap: 14px;
 }
 
 .mini-qr-btn {

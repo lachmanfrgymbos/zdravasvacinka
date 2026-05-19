@@ -202,7 +202,11 @@ function renderRecipe(recipe) {
         <div class="recipe-category">
           ${recipe.category || 'Recept'}
         </div>
-        
+
+      </div>
+
+
+
       <h1 class="recipe-title">
         ${recipe.title}
       </h1>
@@ -212,6 +216,7 @@ function renderRecipe(recipe) {
       <p class="recipe-description">
         ${recipe.description || ''}
       </p>
+
 
 
       <div class="recipe-stats">
@@ -322,4 +327,3 @@ function renderRecipe(recipe) {
     `${recipe.title} | Zdravá Svačinka`;
 
 }
-

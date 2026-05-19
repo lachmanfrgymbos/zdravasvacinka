@@ -586,7 +586,7 @@ const closeQR =
 
 
 
-window.openQR = function(title, id)
+window.openQR = function(title, id) {
 
   qrModal.classList.add('show');
 

@@ -320,7 +320,7 @@ function renderRecipe(recipe) {
         class="mini-qr-btn"
         onclick="openQR('${recipe.title}', ${recipe.id})"
       >
-        🔳
+        ▣
       </button>
 
 

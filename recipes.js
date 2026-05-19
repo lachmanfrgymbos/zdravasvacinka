@@ -254,7 +254,7 @@ function renderRecipes(recipes) {
       )
     "
   >
-    📱
+    ▣
   </button>
 
 </div>

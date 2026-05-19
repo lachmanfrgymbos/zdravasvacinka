@@ -244,18 +244,12 @@ function renderRecipes(recipes) {
 
 <div class="recipe-icons">
 
-  <button
-    class="mini-qr-btn"
-    onclick="
-      event.stopPropagation();
-      openQR(
-        '${recipe.title}',
-        ${recipe.id}
-      )
-    "
-  >
-    ▣
-  </button>
+ <button
+  class="mini-qr-btn"
+  onclick="event.stopPropagation(); openQR('${recipe.title}', ${recipe.id})"
+>
+  ▣
+</button>
 
 </div>
 

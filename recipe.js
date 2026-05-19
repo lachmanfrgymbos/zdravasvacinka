@@ -216,18 +216,6 @@ function renderRecipe(recipe) {
 
 </div>
 
-        <div class="recipe-emoji">
-          ${emoji}
-        </div>
-
-        <div class="recipe-category">
-          ${recipe.category || 'Recept'}
-        </div>
-
-      </div>
-
-
-
       <h1 class="recipe-title">
         ${recipe.title}
       </h1>

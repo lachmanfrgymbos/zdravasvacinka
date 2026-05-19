@@ -193,25 +193,25 @@ function renderRecipe(recipe) {
 
     <section class="recipe-hero">
 
-     <div class="recipe-top">
+  <div class="recipe-top">
+
+  <div class="recipe-emoji">
+    ${emoji}
+  </div>
 
   <div class="recipe-actions">
-
-    <div class="recipe-emoji">
-      ${emoji}
-    </div>
 
     <button
       class="mini-qr-btn"
       onclick="openQR('${recipe.title}', ${recipe.id})"
     >
-      ▣
+      ▣ 
     </button>
 
-  </div>
+    <div class="recipe-category">
+      ${recipe.category || 'Recept'}
+    </div>
 
-  <div class="recipe-category">
-    ${recipe.category || 'Recept'}
   </div>
 
 </div>

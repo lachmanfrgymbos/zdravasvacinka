@@ -300,9 +300,12 @@ function renderRecipe(recipe) {
           ${recipe.category || 'Recept'}
         </div>
 
-      </div>
-
-
+        <button
+  class="mini-qr-btn"
+  onclick="openQR('${recipe.title}', ${recipe.id})"
+>
+  ▣
+</button>
 
       <h1 class="recipe-title">
         ${recipe.title}
@@ -313,16 +316,6 @@ function renderRecipe(recipe) {
       <p class="recipe-description">
         ${recipe.description || ''}
       </p>
-
-
-
-      <button
-        class="mini-qr-btn"
-        onclick="openQR('${recipe.title}', ${recipe.id})"
-      >
-        ▣
-      </button>
-
 
 
       <div class="recipe-stats">

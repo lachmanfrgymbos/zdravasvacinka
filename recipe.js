@@ -433,3 +433,100 @@ function renderRecipe(recipe) {
     `${recipe.title} | Zdravá Svačinka`;
 
 }
+
+/* =========================
+   QR MODAL
+========================= */
+
+const qrModal =
+  document.getElementById(
+    'qr-modal'
+  );
+
+const qrCode =
+  document.getElementById(
+    'qr-code'
+  );
+
+const qrTitle =
+  document.getElementById(
+    'qr-title'
+  );
+
+const closeQR =
+  document.getElementById(
+    'close-qr'
+  );
+
+
+
+window.openQR = function(title, id) {
+
+  qrModal.classList.add(
+    'show'
+  );
+
+  qrTitle.innerText = title;
+
+  qrCode.innerHTML = '';
+
+
+
+  const recipeUrl =
+    `${window.location.origin}/recipe.html?id=${id}`;
+
+
+
+  new QRCode(qrCode, {
+
+    text: recipeUrl,
+
+    width: 240,
+
+    height: 240
+
+  });
+
+};
+
+
+
+/* =========================
+   CLOSE QR
+========================= */
+
+if (closeQR) {
+
+  closeQR.addEventListener(
+    'click',
+    () => {
+
+      qrModal.classList.remove(
+        'show'
+      );
+
+    }
+  );
+
+}
+
+
+
+if (qrModal) {
+
+  qrModal.addEventListener(
+    'click',
+    (e) => {
+
+      if (e.target === qrModal) {
+
+        qrModal.classList.remove(
+          'show'
+        );
+
+      }
+
+    }
+  );
+
+}

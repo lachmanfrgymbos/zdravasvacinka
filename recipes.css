@@ -369,6 +369,8 @@ h1 {
   justify-content: space-between;
 
   margin-bottom: 16px;
+
+  padding-right: 64px;
 }
 
 .recipe-emoji {
@@ -573,49 +575,76 @@ h1 {
 
 }
 
-* =========================
+/* =========================
    FAVORITE BUTTON
 ========================= */
 
 .favorite-btn {
   position: absolute;
 
-  top: 18px;
-  right: 18px;
+  top: 16px;
+  right: 16px;
 
-  width: 42px;
-  height: 42px;
+  width: 52px;
+  height: 52px;
 
   border: none;
 
-  border-radius: 14px;
+  border-radius: 18px;
 
-  background: rgba(255,255,255,0.72);
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255,255,255,0.96),
+      rgba(255,255,255,0.82)
+    );
 
-  backdrop-filter: blur(12px);
+  backdrop-filter: blur(18px);
 
-  border: 1px solid rgba(112,182,88,0.12);
+  border: 1px solid rgba(255,255,255,0.7);
 
   display: flex;
 
   align-items: center;
   justify-content: center;
 
-  font-size: 18px;
+  font-size: 24px;
 
   cursor: pointer;
 
-  transition:
-    transform 0.25s ease,
-    background 0.25s ease,
-    box-shadow 0.25s ease;
-}
-
-.favorite-btn:hover {
-  transform: scale(1.08);
-
-  background: rgba(255,255,255,0.92);
+  z-index: 5;
 
   box-shadow:
-    0 10px 20px rgba(112,182,88,0.12);
+    0 10px 30px rgba(31,45,34,0.08),
+    0 0 20px rgba(255,120,120,0.08);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    background 0.25s ease;
+}
+
+
+
+.favorite-btn:hover {
+  transform:
+    scale(1.12)
+    rotate(-4deg);
+
+  box-shadow:
+    0 16px 34px rgba(255,120,120,0.18),
+    0 0 28px rgba(255,120,120,0.14);
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255,255,255,1),
+      rgba(255,245,245,0.92)
+    );
+}
+
+
+
+.favorite-btn:active {
+  transform: scale(0.94);
 }

@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="cs">
 <head>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
   
   <meta charset="UTF-8" />
 
@@ -90,6 +88,36 @@
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
   <script src="recipes.js"></script>
+ 
+  <scrpt src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 
+  <div class="qr-modal" id="qr-modal">
+
+  <div class="qr-box">
+
+    <button
+      class="close-qr"
+      id="close-qr"
+    >
+      ✕
+    </button>
+
+    <h2 id="qr-title">
+      Recept
+    </h2>
+
+    <div id="qr-code"></div>
+
+    <button
+      class="print-btn"
+      onclick="window.print()"
+    >
+      🖨️ Vytisknout
+    </button>
+
+  </div>
+
+</div>
+  
 </body>
 </html>

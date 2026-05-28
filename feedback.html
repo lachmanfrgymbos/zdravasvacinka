@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+
+  <meta charset="UTF-8" />
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+
+  <title>Feedback | Zdravá Svačinka</title>
+
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  />
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  />
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <link
+    rel="stylesheet"
+    href="feedback.css"
+  />
+
+</head>
+
+<body>
+
+  <div class="background-glow"></div>
+  <div class="background-glow second"></div>
+
+  <main class="container">
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+      <div class="badge">
+        FEEDBACK PO AKCI
+      </div>
+
+      <h1>
+        Jak se ti líbila
+        Zdravá Svačinka?
+      </h1>
+
+      <p class="subtitle">
+        Díky za každý feedback 💚
+        Pomůže nám zjistit,
+        co se povedlo nejvíc.
+      </p>
+
+    </section>
+
+
+
+    <!-- FORM -->
+
+    <section class="feedback-card">
+
+      <form id="feedback-form">
+
+        <!-- RATING -->
+
+        <div class="form-group">
+
+          <label>
+            Jak bys ohodnotil/a akci?
+          </label>
+
+          <div class="rating-buttons">
+
+            <button
+              type="button"
+              class="rating-btn"
+              data-value="1"
+            >
+              😕
+            </button>
+
+            <button
+              type="button"
+              class="rating-btn"
+              data-value="2"
+            >
+              🙂
+            </button>
+
+            <button
+              type="button"
+              class="rating-btn"
+              data-value="3"
+            >
+              😍
+            </button>
+
+            <button
+              type="button"
+              class="rating-btn"
+              data-value="4"
+            >
+              🔥
+            </button>
+
+          </div>
+
+        </div>
+
+
+
+        <!-- FAVORITE BOOTH -->
+
+        <div class="form-group">
+
+          <label for="favorite-booth">
+            Jaký stánek tě bavil nejvíc?
+          </label>
+
+          <select id="favorite-booth">
+
+            <option value="">
+              Vyber stánek
+            </option>
+
+            <option>
+              Nepamatuju si
+            </option>
+
+            <option>
+              Smoothie bar
+            </option>
+
+            <option>
+              Protein zóna
+            </option>
+
+            <option>
+              Healthy sweets
+            </option>
+
+          </select>
+
+          <button
+            type="button"
+            class="map-btn"
+            onclick="window.open('mapa.html')"
+          >
+            📍 Otevřít mapu stánků
+          </button>
+
+        </div>
+
+
+
+        <!-- BEST PART -->
+
+        <div class="form-group">
+
+          <label for="best-part">
+            Co se ti líbilo nejvíc?
+          </label>
+
+          <textarea
+            id="best-part"
+            placeholder="Atmosféra, jídlo, stánek, program..."
+          ></textarea>
+
+        </div>
+
+
+
+        <!-- IMPROVE -->
+
+        <div class="form-group">
+
+          <label for="improve">
+            Co bychom mohli zlepšit?
+          </label>
+
+          <textarea
+            id="improve"
+            placeholder="Cokoliv tě napadne..."
+          ></textarea>
+
+        </div>
+
+
+
+        <!-- SUBMIT -->
+
+        <button
+          type="submit"
+          class="submit-btn"
+        >
+          Odeslat feedback ✨
+        </button>
+
+      </form>
+
+    </section>
+
+
+
+    <!-- SUCCESS -->
+
+    <section
+      class="success-card hidden"
+      id="success-card"
+    >
+
+      <div class="success-emoji">
+        🍋
+      </div>
+
+      <h2>
+        Děkujeme!
+      </h2>
+
+      <p>
+        Tvůj feedback byl úspěšně odeslán 💚
+      </p>
+
+    </section>
+
+  </main>
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+  <script src="feedback.js"></script>
+
+</body>
+</html>

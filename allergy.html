@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+
+  <meta charset="UTF-8" />
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+
+  <title>
+    Alergie & Speciální Stravování
+  </title>
+
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  />
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  />
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <link
+    rel="stylesheet"
+    href="allergy.css"
+  />
+
+</head>
+
+<body>
+
+  <!-- BACKGROUND -->
+  <div class="background-glow"></div>
+  <div class="background-glow second"></div>
+
+  <!-- FLOATING PARTICLES -->
+  <div class="particles">
+
+    <span>🍋</span>
+    <span>🌿</span>
+    <span>🥑</span>
+    <span>🍓</span>
+    <span>✨</span>
+
+  </div>
+
+  <main class="container">
+
+    <!-- HERO -->
+    <section class="hero">
+
+      <div class="badge">
+        Speciální stravování
+      </div>
+
+      <h1>
+        Postaráme se<br />
+        o tebe 💚
+      </h1>
+
+      <p class="subtitle">
+        Máš alergii, intoleranci nebo speciální
+        stravování? Dej nám vědět a pošleme ti
+        informace o vhodných stáncích a možnostech
+        na eventu.
+      </p>
+
+    </section>
+
+    <!-- FORM -->
+    <section class="form-card">
+
+      <form id="allergy-form">
+
+        <!-- OPTIONS -->
+        <div class="form-group">
+
+          <label>
+            Co potřebuješ?
+          </label>
+
+          <div class="allergy-options">
+
+            <button
+              type="button"
+              class="option-btn"
+              data-value="Bez lepku"
+            >
+              🌾 Bez lepku
+            </button>
+
+            <button
+              type="button"
+              class="option-btn"
+              data-value="Bez laktózy"
+            >
+              🥛 Bez laktózy
+            </button>
+
+            <button
+              type="button"
+              class="option-btn"
+              data-value="Vegan"
+            >
+              🌱 Vegan
+            </button>
+
+            <button
+              type="button"
+              class="option-btn"
+              data-value="Alergie na ořechy"
+            >
+              🥜 Ořechy
+            </button>
+
+            <button
+              type="button"
+              class="option-btn"
+              data-value="Alergie na vejce"
+            >
+              🥚 Vejce
+            </button>
+
+            <button
+              type="button"
+              class="option-btn"
+              data-value="Jiné"
+              id="other-trigger"
+            >
+              ❓ Jiné
+            </button>
+
+          </div>
+
+        </div>
+
+        <!-- OTHER -->
+        <div
+          class="hidden-field"
+          id="other-field"
+        >
+
+          <label>
+            Popiš prosím své omezení
+          </label>
+
+          <input
+            type="text"
+            id="other-allergy"
+            placeholder="Např. silná celiakie..."
+          />
+
+        </div>
+
+        <!-- CONTACT -->
+        <div class="form-group">
+
+          <label>
+            Kontakt
+          </label>
+
+          <input
+            type="text"
+            id="contact"
+            placeholder="Instagram nebo email"
+          />
+
+          <small>
+            Stačí jedna možnost ✨
+          </small>
+
+        </div>
+
+        <!-- NOTE -->
+        <div class="form-group">
+
+          <label>
+            Poznámka (volitelné)
+          </label>
+
+          <textarea
+            id="note"
+            placeholder="Cokoliv důležitého..."
+          ></textarea>
+
+        </div>
+
+        <!-- WARNING -->
+        <div class="warning-box">
+
+          <p>
+            Snažíme se zajistit co nejbezpečnější
+            možnosti i pro návštěvníky s alergiemi
+            a intolerancemi.
+          </p>
+
+          <p>
+            Nemůžeme však garantovat
+            100% nekontaminaci potravin například
+            u celiakie nebo silných alergií.
+          </p>
+
+        </div>
+
+        <!-- BUTTON -->
+        <button
+          type="submit"
+          class="submit-btn"
+        >
+          💌 Informovat mě
+        </button>
+
+      </form>
+
+    </section>
+
+  </main>
+
+  <!-- SUCCESS MODAL -->
+  <div
+    class="success-modal"
+    id="success-modal"
+  >
+
+    <div class="success-content">
+
+      <div class="success-icon">
+        💚
+      </div>
+
+      <h2>
+        Děkujeme!
+      </h2>
+
+      <p>
+        Jakmile budeme mít připravené
+        informace o stáncích a alergenech,
+        ozveme se ti ✨
+      </p>
+
+      <button id="close-modal">
+        Zavřít
+      </button>
+
+    </div>
+
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+  <script src="allergy.js"></script>
+
+</body>
+</html>

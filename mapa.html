@@ -1,1 +1,232 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
 
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Mapa | Zdravá Svačinka</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="mapa.css">
+
+</head>
+
+<body>
+
+<div class="background-glow"></div>
+<div class="background-glow second"></div>
+
+<!-- NAVBAR -->
+
+<nav class="navbar">
+
+<a href="index.html" class="logo">
+🍋 Zdravá Svačinka
+</a>
+
+<div class="nav-links">
+
+<a href="index.html">Domů</a>
+
+<a href="recepty.html">Recepty</a>
+
+<a href="mapa.html" class="active">Mapa</a>
+
+<a href="feedback.html">Feedback</a>
+
+<a href="blog.html">Blog</a>
+
+</div>
+
+</nav>
+
+<!-- HERO -->
+
+<section class="hero">
+
+<div class="badge">
+Festivalová mapa
+</div>
+
+<h1>
+Najdi svůj stánek
+</h1>
+
+<p>
+Procházej jednotlivá patra a objev zdravé dobroty, workshopy i doprovodný program.
+</p>
+
+</section>
+
+<!-- FLOOR SWITCHER -->
+
+<section class="floor-switcher">
+
+<button class="floor-btn active">
+Altán + Dvorek
+</button>
+
+<button class="floor-btn">
+1. patro
+</button>
+
+<button class="floor-btn">
+2. patro
+</button>
+
+<button class="floor-btn">
+3. patro
+</button>
+
+</section>
+
+<!-- MAPA -->
+
+<section class="map-section">
+
+<div class="map-card">
+
+<div class="map-placeholder">
+
+<div class="placeholder-icon">
+🗺️
+</div>
+
+<h2>
+Mapa bude brzy dostupná
+</h2>
+
+<p>
+Zítra sem doplníme interaktivní plán budovy.
+</p>
+
+</div>
+
+<!-- SEM PŘIJDE OBRÁZEK -->
+
+<div id="map-container"></div>
+
+</div>
+
+</section>
+
+<!-- LEGENDA -->
+
+<section class="legend">
+
+<h2>Legenda</h2>
+
+<div class="legend-grid">
+
+<div class="legend-item">
+🟢 Zdravé snacky
+</div>
+
+<div class="legend-item">
+🟡 Nápoje
+</div>
+
+<div class="legend-item">
+🔵 Workshopy
+</div>
+
+<div class="legend-item">
+🟣 Informace
+</div>
+
+</div>
+
+</section>
+
+<!-- SEARCH -->
+
+<section class="search-section">
+
+<input
+type="text"
+placeholder="Vyhledat stánek..."
+id="search-input"
+/>
+
+</section>
+
+<!-- STÁNKY -->
+
+<section class="stalls-section">
+
+<h2>
+Stánky
+</h2>
+
+<div class="stalls-grid">
+
+<div class="stall-card">
+🥤 Smoothie Bar
+</div>
+
+<div class="stall-card">
+🍓 Ovocný stánek
+</div>
+
+<div class="stall-card">
+🥑 Avokádové speciality
+</div>
+
+<div class="stall-card">
+🌱 Vegan zóna
+</div>
+
+<div class="stall-card">
+💧 Pitný režim
+</div>
+
+<div class="stall-card">
+🍋 Citrus Corner
+</div>
+
+</div>
+
+</section>
+
+<!-- MODAL -->
+
+<div class="modal" id="stall-modal">
+
+<div class="modal-content">
+
+<button class="close-modal">
+✕
+</button>
+
+<h2>
+🥤 Smoothie Bar
+</h2>
+
+<p>
+Informace o stánku se zobrazí zde.
+</p>
+
+</div>
+
+</div>
+
+<script src="mapa.js"></script>
+
+</body>
+</html>
+Zítra potom uděláme
+mapa.css ve stejném stylu jako recepty.
+Funkční navbar.
+Přepínání pater.
+Obrázky pater.
+Klikací body na mapě.
+Popup detail stánku.
+Vyhledávání stánků.
+Propojení s recepty.
+
+A bude to vypadat jako normální interaktivní mapa festivalu, ne jako školní projekt. 🍋✨

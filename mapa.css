@@ -112,6 +112,16 @@ body {
   transition: .3s;
 }
 
+.logo span:first-child {
+
+  font-size: 24px;
+
+  filter:
+    drop-shadow(
+      0 0 10px rgba(255,214,102,0.5)
+    );
+}
+
 .logo:hover {
 
   transform: translateY(-1px);

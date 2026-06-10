@@ -564,16 +564,16 @@ body {
 
   .navbar {
 
-    flex-direction: column;
+  position: relative;
 
-    gap: 14px;
+  top: 0;
 
-    padding: 18px;
-  }
+  margin-top: 15px;
+}
 
   .logo {
 
-    font-size: 20px;
+    font-size: 17px;
   }
 
   .nav-links {
@@ -590,12 +590,9 @@ body {
 
   .nav-links a {
 
-    text-align: center;
-
-    padding: 12px 8px;
-
-    font-size: 13px;
-  }
+    padding: 10px 8px;
+  font-size: 12px;
+}
 
   .map-card {
     padding: 25px;

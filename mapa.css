@@ -1,1 +1,97 @@
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(135deg, #fff9e8, #eefbf5);
+  color: #243326;
+}
 
+/* NAVBAR */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background: rgba(255,255,255,0.7);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.logo {
+  font-weight: 800;
+  color: #5c8f3b;
+}
+
+.nav-links a {
+  margin-left: 18px;
+  text-decoration: none;
+  color: #243326;
+  font-weight: 600;
+  opacity: 0.7;
+}
+
+.nav-links a.active {
+  color: #5c8f3b;
+  opacity: 1;
+}
+
+/* HERO */
+.hero {
+  text-align: center;
+  padding: 50px 20px 20px;
+}
+
+.hero h1 {
+  font-size: 42px;
+  margin-bottom: 10px;
+}
+
+/* FLOOR BUTTONS */
+.floor-select {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin: 20px 0 40px;
+}
+
+.floor-select button {
+  padding: 10px 16px;
+  border-radius: 999px;
+  border: 1px solid rgba(0,0,0,0.1);
+  background: rgba(255,255,255,0.7);
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.2s;
+}
+
+.floor-select button:hover {
+  transform: translateY(-2px);
+  background: white;
+}
+
+/* MAP */
+.map-wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+.map-placeholder {
+  width: 90%;
+  max-width: 900px;
+  height: 500px;
+  border-radius: 30px;
+  background: rgba(255,255,255,0.6);
+  border: 1px dashed rgba(0,0,0,0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 40px;
+  opacity: 0.6;
+}

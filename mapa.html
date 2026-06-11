@@ -1,1 +1,60 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mapa | Zdravá Svačinka</title>
 
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="mapa.css">
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="logo">Zdravá Svačinka</div>
+
+    <div class="nav-links">
+      <a href="index.html">Domů</a>
+      <a href="recipes.html">Recepty</a>
+      <a class="active" href="mapa.html">Mapa</a>
+      <a href="#">Feedback</a>
+      <a href="#">Info</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <h1>Interaktivní mapa</h1>
+    <p>Vyber patro a objev jednotlivé stánky</p>
+  </section>
+
+  <!-- FLOOR SELECT -->
+  <section class="floor-select">
+    <button onclick="switchFloor('1')">1. patro</button>
+    <button onclick="switchFloor('2')">2. patro</button>
+    <button onclick="switchFloor('3')">3. patro</button>
+    <button onclick="switchFloor('dvorek')">Altán / Dvorek</button>
+  </section>
+
+  <!-- MAP AREA -->
+  <section class="map-wrapper">
+
+    <div class="map-placeholder" id="map">
+      <p id="map-text">Zatím čekáme na mapu 👀</p>
+
+      <!-- TADY SE POZDĚJI VLOŽÍ FOTKA -->
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© Zdravá Svačinka</p>
+  </footer>
+
+  <script src="mapa.js"></script>
+
+</body>
+</html>

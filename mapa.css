@@ -1,7 +1,27 @@
 body {
+  .background-glow {
+  position: fixed;
+
+  width: 520px;
+  height: 520px;
+
+  border-radius: 50%;
+
+  background: rgba(112,182
   margin: 0;
   font-family: 'Inter', sans-serif;
-  background: linear-gradient(135deg, #fff9e8, #eefbf5);
+  background:
+  linear-gradient(
+    135deg,
+    #fff8e7 0%,
+    #eefbea 35%,
+    #e7f8ef 70%,
+    #f6fff2 100%
+  );
+
+min-height: 100vh;
+overflow-x: hidden;
+position: relative;
   color: #243326;
 }
 

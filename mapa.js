@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
+console.log("JS loaded");
 
   const menuToggle = document.getElementById("menu-toggle");
   const navLinks = document.getElementById("nav-links");

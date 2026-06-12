@@ -1,4 +1,58 @@
-color: #243326;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+
+  background:
+    linear-gradient(
+      135deg,
+      #fff8e7 0%,
+      #eefbea 35%,
+      #e7f8ef 70%,
+      #f6fff2 100%
+    );
+
+  min-height: 100vh;
+
+  overflow-x: hidden;
+
+  position: relative;
+
+  color: #243326;
+}
+
+.background-glow {
+  position: fixed;
+
+  width: 520px;
+  height: 520px;
+
+  border-radius: 50%;
+
+  background: rgba(112,182,88,0.18);
+
+  filter: blur(120px);
+
+  top: -180px;
+  left: -180px;
+
+  z-index: -1;
+
+  pointer-events: none;
+}
+
+.background-glow.second {
+  background: rgba(255,210,95,0.18);
+
+  top: auto;
+  left: auto;
+
+  bottom: -180px;
+  right: -180px;
 }
 
 /* NAVBAR */

@@ -882,3 +882,50 @@ h1 {
 
   background: rgba(0,0,0,0.1);
 }
+
+/* oprava navbaru z mapy */
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 20px 30px;
+
+  background: rgba(255,255,255,0.72);
+  backdrop-filter: blur(20px);
+}
+
+
+.logo {
+  font-size: 18px;
+  font-weight: 800;
+  color: #5c8f3b;
+}
+
+
+.nav-links {
+  display: flex;
+  gap: 24px;
+}
+
+
+.nav-links a {
+  text-decoration: none;
+  color: #243326;
+  font-weight: 600;
+}
+
+
+.nav-links a.active {
+  color: #5fa86d;
+}
+
+
+.menu-toggle {
+  display: none;
+}

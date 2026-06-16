@@ -194,9 +194,16 @@ footer {
 
 @media (max-width:768px){
 
-  .menu-toggle{
-    display:block;
+  .map-placeholder{
+    width: 98%;
   }
+
+  #map-image{
+    transform: scale(1.15);
+    transform-origin: center center;
+  }
+
+}
 
   .nav-links {
   display: none;

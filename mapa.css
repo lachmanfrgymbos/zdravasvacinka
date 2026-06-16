@@ -233,17 +233,6 @@ footer {
   margin: 25px auto;
 }
 
-#map-text {
-
-  padding: 20px;
-
-  text-align: center;
-
-  font-size: 18px;
-
-  font-weight: 600;
-
-  color: #243326;
-
-  background: rgba(255,255,255,0.85);
+#map-text{
+  display:none;
 }

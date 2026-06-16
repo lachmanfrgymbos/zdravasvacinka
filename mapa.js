@@ -13,22 +13,38 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function switchFloor(floor) {
 
-  const text = document.getElementById("map-text");
+  const text =
+    document.getElementById("map-text");
+
+  const image =
+    document.getElementById("map-image");
 
   if (floor === "1") {
-    text.innerText = "1. patro - mapa se načte později";
+
+    image.src = "images/1p.png";
+
+    text.innerText = "1. patro";
   }
 
   if (floor === "2") {
-    text.innerText = "2. patro - mapa se načte později";
+
+    image.src = "images/2p.png";
+
+    text.innerText = "2. patro";
   }
 
   if (floor === "3") {
-    text.innerText = "3. patro - mapa se načte později";
+
+    image.src = "images/3p.png";
+
+    text.innerText = "3. patro";
   }
 
   if (floor === "dvorek") {
-    text.innerText = "Altán / Dvorek - mapa se načte později";
+
+    image.src = "images/altanek.png";
+
+    text.innerText = "Altánek";
   }
 
 }

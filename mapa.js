@@ -11,6 +11,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 
+
+function closeAllPopups(){
+
+  document.querySelectorAll(".popup")
+  .forEach(popup => {
+    popup.classList.remove("show");
+  });
+
+}
+
+
 function switchFloor(floor) {
 
   const text =
@@ -18,6 +29,7 @@ function switchFloor(floor) {
 
   const image =
     document.getElementById("map-image");
+
 
  if (floor === "1") {
 
@@ -33,7 +45,8 @@ function switchFloor(floor) {
   text.innerText = "1. patro";
 }
 
-  if (floor === "2") {
+
+if (floor === "2") {
 
   hideAllStands();
 
@@ -46,8 +59,9 @@ function switchFloor(floor) {
 
   text.innerText = "2. patro";
 }
-  
- if (floor === "3") {
+
+
+if (floor === "3") {
 
   hideAllStands();
 
@@ -60,9 +74,9 @@ function switchFloor(floor) {
 
   text.innerText = "3. patro";
 }
-  
 
-  if (floor === "altanek") {
+
+if (floor === "altanek") {
 
   hideAllStands();
 
@@ -78,13 +92,18 @@ function switchFloor(floor) {
 
 }
 
+
+
 function openStand() {
+
+  closeAllPopups();
 
   document
     .getElementById("popup")
     .classList.add("show");
 
 }
+
 
 function closePopup() {
 
@@ -94,7 +113,11 @@ function closePopup() {
 
 }
 
+
+
 function openStand2(){
+
+  closeAllPopups();
 
   document
     .getElementById("popup2")
@@ -102,13 +125,19 @@ function openStand2(){
 
 }
 
+
+
 function openStand3(){
+
+  closeAllPopups();
 
   document
     .getElementById("popup3")
     .classList.add("show");
 
 }
+
+
 
 function closePopup2(){
 
@@ -118,6 +147,8 @@ function closePopup2(){
 
 }
 
+
+
 function closePopup3(){
 
   document
@@ -126,13 +157,19 @@ function closePopup3(){
 
 }
 
+
+
 function openStand4(){
+
+  closeAllPopups();
 
   document
     .getElementById("popup4")
     .classList.add("show");
 
 }
+
+
 
 function closePopup4(){
 
@@ -140,15 +177,21 @@ function closePopup4(){
     .getElementById("popup4")
     .classList.remove("show");
 
-  }
+}
 
-  function openStand5(){
+
+
+function openStand5(){
+
+  closeAllPopups();
 
   document
     .getElementById("popup5")
     .classList.add("show");
 
 }
+
+
 
 function closePopup5(){
 
@@ -156,15 +199,21 @@ function closePopup5(){
     .getElementById("popup5")
     .classList.remove("show");
 
-  }
+}
 
-  function openStand6(){
+
+
+function openStand6(){
+
+  closeAllPopups();
 
   document
     .getElementById("popup6")
     .classList.add("show");
 
 }
+
+
 
 function closePopup6(){
 
@@ -172,15 +221,21 @@ function closePopup6(){
     .getElementById("popup6")
     .classList.remove("show");
 
-  }
+}
 
-  function openStand7(){
+
+
+function openStand7(){
+
+  closeAllPopups();
 
   document
     .getElementById("popup7")
     .classList.add("show");
 
 }
+
+
 
 function closePopup7(){
 
@@ -188,9 +243,13 @@ function closePopup7(){
     .getElementById("popup7")
     .classList.remove("show");
 
-  }
+}
 
-  function openStand8(){
+
+
+function openStand8(){
+
+  closeAllPopups();
 
   document
     .getElementById("popup8")
@@ -198,14 +257,18 @@ function closePopup7(){
 
 }
 
+
+
 function closePopup8(){
 
   document
     .getElementById("popup8")
     .classList.remove("show");
 
-  }
-  
+}
+
+
+
 function hideAllStands(){
 
   document.querySelectorAll(
@@ -217,6 +280,7 @@ function hideAllStands(){
   });
 
 }
+
 
 document.addEventListener("DOMContentLoaded", () => {
   switchFloor("1");

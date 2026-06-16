@@ -254,7 +254,7 @@ footer {
   width: 80px;
   height: 45px;
 
-  background: transparent;
+  background: rgba(255,0,0,.15);
 
   border: none;
 
@@ -350,14 +350,14 @@ footer {
   font-size:22px;
 }
 
-.stanek1{
+.stanek2{
 
   position: absolute;
 
   width: 80px;
   height: 45px;
 
-  background: transparent;
+  background: rgba(255,0,0,.15);
 
   border: none;
 

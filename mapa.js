@@ -35,24 +35,46 @@ function switchFloor(floor) {
 
   if (floor === "2") {
 
-    image.src = "images/2p.png";
+  hideAllStands();
 
-    text.innerText = "2. patro";
-  }
+  document.querySelectorAll(".patro2")
+    .forEach(stanek => {
+      stanek.style.display = "block";
+    });
 
-  if (floor === "3") {
+  image.src = "images/2p.png";
 
-    image.src = "images/3p.png";
+  text.innerText = "2. patro";
+}
+  
+ if (floor === "3") {
 
-    text.innerText = "3. patro";
-  }
+  hideAllStands();
 
-  if (floor === "dvorek") {
+  document.querySelectorAll(".patro3")
+    .forEach(stanek => {
+      stanek.style.display = "block";
+    });
 
-    image.src = "images/altanek.png";
+  image.src = "images/3p.png";
 
-    text.innerText = "Altánek";
-  }
+  text.innerText = "3. patro";
+}
+  
+
+  if (floor === "altanek") {
+
+  hideAllStands();
+
+  document.querySelectorAll(".altanek")
+    .forEach(stanek => {
+      stanek.style.display = "block";
+    });
+
+  image.src = "images/altanek.png";
+
+  text.innerText = "Altánek";
+}
 
 }
 

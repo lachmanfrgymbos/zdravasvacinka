@@ -265,3 +265,87 @@ footer {
 
   z-index: 100;
 }
+
+.popup{
+
+  position: fixed;
+  inset: 0;
+
+  background: rgba(0,0,0,.45);
+
+  display: none;
+
+  justify-content: center;
+  align-items: center;
+
+  z-index: 9999;
+}
+
+.popup.show{
+  display:flex;
+}
+
+.popup-content{
+
+  position: relative;
+
+  width: 90%;
+  max-width: 450px;
+
+  background: white;
+
+  padding: 30px;
+
+  border-radius: 24px;
+
+  text-align: center;
+
+  box-shadow: 0 20px 60px rgba(0,0,0,.15);
+}
+
+.popup-content h2{
+  margin-bottom:15px;
+}
+
+.popup-content ul{
+  list-style:none;
+  margin-bottom:25px;
+}
+
+.popup-content li{
+  margin:10px 0;
+}
+
+.popup-button{
+
+  display:inline-block;
+
+  padding:12px 20px;
+
+  border-radius:999px;
+
+  text-decoration:none;
+
+  color:white;
+
+  background:linear-gradient(
+    135deg,
+    #7bbf59,
+    #5fa86d
+  );
+}
+
+.close-popup{
+
+  position:absolute;
+
+  top:15px;
+  right:15px;
+
+  border:none;
+  background:none;
+
+  cursor:pointer;
+
+  font-size:22px;
+}

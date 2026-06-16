@@ -429,6 +429,20 @@ footer {
   z-index: 100;
 }
 
+.altanek.stanek2{
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background: rgba(255,0,0,.15);
+  border: none;
+  cursor: pointer;
+
+  left: 70%;
+  top: 43.5%;
+
+  z-index: 100;
+}
+
 @media (max-width:768px){
 
   .stanek1,

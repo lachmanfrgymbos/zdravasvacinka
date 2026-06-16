@@ -138,3 +138,6 @@ function hideAllStands(){
 
 }
 
+document.addEventListener("DOMContentLoaded", () => {
+  switchFloor("1");
+});

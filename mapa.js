@@ -140,6 +140,8 @@ function closePopup4(){
     .getElementById("popup4")
     .classList.remove("show");
 
+  }
+
   function openStand5(){
 
   document
@@ -153,6 +155,8 @@ function closePopup5(){
   document
     .getElementById("popup5")
     .classList.remove("show");
+
+  }
 
   function openStand6(){
 
@@ -168,6 +172,8 @@ function closePopu6(){
     .getElementById("popup6")
     .classList.remove("show");
 
+  }
+
   function openStand7(){
 
   document
@@ -182,6 +188,8 @@ function closePopup7(){
     .getElementById("popup7")
     .classList.remove("show");
 
+  }
+
   function openStand8(){
 
   document
@@ -195,6 +203,8 @@ function closePopup8(){
   document
     .getElementById("popup8")
     .classList.remove("show");
+
+  }
   
 function hideAllStands(){
 

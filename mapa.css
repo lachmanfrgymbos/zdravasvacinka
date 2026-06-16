@@ -437,8 +437,8 @@ footer {
   border: none;
   cursor: pointer;
 
-  left: 50%;
-  top: 50%;
+  left: 35%;
+  top: 35%;
 
   z-index: 100;
 }

@@ -350,23 +350,23 @@ footer {
   font-size:22px;
 }
 
-.stanek2{
+.stanek1{
 
-  position:absolute;
+  position: absolute;
 
-  width:80px;
-  height:45px;
+  width: 80px;
+  height: 45px;
 
-  background:rgba(255,0,0,.15);
+  background: transparent;
 
-  border:none;
+  border: none;
 
-  cursor:pointer;
+  cursor: pointer;
 
-  left: 400px;
-  top: 175px;
+  left: 425px;
+  top: 210px;
 
-  z-index:100;
+  z-index: 100;
 }
 
 .stanek3{
@@ -382,7 +382,7 @@ footer {
 
   cursor:pointer;
 
-  left: 700px;
+  left: 590px;
   top: 295px;
 
   z-index:1

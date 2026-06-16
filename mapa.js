@@ -126,6 +126,76 @@ function closePopup3(){
 
 }
 
+function openStand4(){
+
+  document
+    .getElementById("popup4")
+    .classList.add("show");
+
+}
+
+function closePopup4(){
+
+  document
+    .getElementById("popup4")
+    .classList.remove("show");
+
+  function openStand5(){
+
+  document
+    .getElementById("popup5")
+    .classList.add("show");
+
+}
+
+function closePopup5(){
+
+  document
+    .getElementById("popup5")
+    .classList.remove("show");
+
+  function openStand6(){
+
+  document
+    .getElementById("popup6")
+    .classList.add("show");
+
+}
+
+function closePopu6(){
+
+  document
+    .getElementById("popup6")
+    .classList.remove("show");
+
+  function openStand7(){
+
+  document
+    .getElementById("popup7")
+    .classList.add("show");
+
+}
+
+function closePopup7(){
+
+  document
+    .getElementById("popup7")
+    .classList.remove("show");
+
+  function openStand8(){
+
+  document
+    .getElementById("popup8")
+    .classList.add("show");
+
+}
+
+function closePopup8(){
+
+  document
+    .getElementById("popup8")
+    .classList.remove("show");
+  
 function hideAllStands(){
 
   document.querySelectorAll(

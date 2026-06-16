@@ -373,6 +373,34 @@ footer {
   z-index: 100;
 }
 
+.stanek4{
+  position: absolute;
+  width: 80px;
+  height: 45px;
+  background: rgba(255,0,0,.15);
+  border: none;
+  cursor: pointer;
+
+  left: 15.3%;
+  top: 48%;
+
+  z-index: 100;
+}
+
+.stanek5{
+  position: absolute;
+  width: 80px;
+  height: 45px;
+  background: rgba(255,0,0,.15);
+  border: none;
+  cursor: pointer;
+
+  left: 69%;
+  top: 80%;
+
+  z-index: 100;
+}
+
 @media (max-width:768px){
 
   .stanek1,

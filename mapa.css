@@ -423,7 +423,7 @@ footer {
   border: none;
   cursor: pointer;
 
-  left: 70%;
+  left: 69%;
   top: 43.5%;
 
   z-index: 100;
@@ -437,8 +437,8 @@ footer {
   border: none;
   cursor: pointer;
 
-  left: 70%;
-  top: 43.5%;
+  left: 50%;
+  top: 50%;
 
   z-index: 100;
 }

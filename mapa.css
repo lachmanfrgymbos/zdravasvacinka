@@ -199,12 +199,11 @@ footer {
   }
 
   #map-image{
-    transform: scale(1.15);
-    transform-origin: center center;
+    width: 85%;
+    transform: none;
   }
 
 }
-
   .nav-links {
   display: none;
 

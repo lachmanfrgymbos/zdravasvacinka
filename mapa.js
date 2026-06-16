@@ -79,4 +79,22 @@ function openStand3(){
     .getElementById("popup")
     .classList.add("show");
 
+}
+
+function closePopup2(){
+
+  document
+    .getElementById("popup2")
+    .classList.remove("show");
+
+}
+
+function closePopup3(){
+
+  document
+    .getElementById("popup3")
+    .classList.remove("show");
+
+}
+
 

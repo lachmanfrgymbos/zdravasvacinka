@@ -166,7 +166,7 @@ function closePopup5(){
 
 }
 
-function closePopu6(){
+function closePopup6(){
 
   document
     .getElementById("popup6")

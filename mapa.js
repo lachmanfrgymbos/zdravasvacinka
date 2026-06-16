@@ -19,12 +19,19 @@ function switchFloor(floor) {
   const image =
     document.getElementById("map-image");
 
-  if (floor === "1") {
+ if (floor === "1") {
 
-    image.src = "images/1p.png";
+  hideAllStands();
 
-    text.innerText = "1. patro";
-  }
+  document.querySelectorAll(".patro1")
+    .forEach(stanek => {
+      stanek.style.display = "block";
+    });
+
+  image.src = "images/1p.png";
+
+  text.innerText = "1. patro";
+}
 
   if (floor === "2") {
 
@@ -97,4 +104,15 @@ function closePopup3(){
 
 }
 
+function hideAllStands(){
+
+  document.querySelectorAll(
+    ".patro1, .patro2, .patro3, .altanek"
+  ).forEach(stanek => {
+
+    stanek.style.display = "none";
+
+  });
+
+}
 

@@ -349,3 +349,40 @@ footer {
 
   font-size:22px;
 }
+
+.stanek2{
+
+  position:absolute;
+
+  width:80px;
+  height:45px;
+
+  background:rgba(255,0,0,.15);
+
+  border:none;
+
+  cursor:pointer;
+
+  left: 400px;
+  top: 175px;
+
+  z-index:100;
+}
+
+.stanek3{
+
+  position:absolute;
+
+  width:390px;
+  height:100px;
+
+  background:rgba(255,0,0,.15);
+
+  border:none;
+
+  cursor:pointer;
+
+  left: 700px;
+  top: 295px;
+
+  z-index:1

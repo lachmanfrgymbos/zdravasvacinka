@@ -48,3 +48,9 @@ function switchFloor(floor) {
   }
 
 }
+
+function openStand() {
+
+  alert("Kliknul jsi na stánek!");
+
+}

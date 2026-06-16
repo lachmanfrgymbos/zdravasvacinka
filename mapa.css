@@ -344,8 +344,8 @@ footer {
 
   cursor: pointer;
 
-  left: 140px;
-  top: 250px;
+  left: 155px;
+  top: 270px;
 
   z-index: 100;
 }
@@ -365,7 +365,7 @@ footer {
   cursor: pointer;
 
   left: 450px;
-  top: 235px;
+  top: 225px;
 
   z-index: 100;
 }
@@ -383,7 +383,7 @@ footer {
 
   cursor:pointer;
 
-  left: 565px;
-  top: 250px;
+  left: 595px;
+  top: 270px;
 
   z-index:100

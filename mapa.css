@@ -163,9 +163,9 @@ body {
 }
 
 .map-placeholder {
+
   width: 90%;
   max-width: 1000px;
-  height: 550px;
 
   background: rgba(255,255,255,0.72);
 
@@ -175,13 +175,9 @@ body {
 
   backdrop-filter: blur(20px);
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  overflow: hidden;
 
-  font-size: 20px;
-
-  color: rgba(36,51,38,0.6);
+  position: relative;
 }
 
 /* FOOTER */
@@ -224,4 +220,26 @@ footer {
 
 .nav-links.show {
   display: flex;
+}
+
+#map-image {
+
+  width: 100%;
+
+  display: block;
+}
+
+#map-text {
+
+  padding: 20px;
+
+  text-align: center;
+
+  font-size: 18px;
+
+  font-weight: 600;
+
+  color: #243326;
+
+  background: rgba(255,255,255,0.85);
 }

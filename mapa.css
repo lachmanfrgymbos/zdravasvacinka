@@ -401,6 +401,34 @@ footer {
   z-index: 100;
 }
 
+.patro3.stanek1{
+  position: absolute;
+  width: 80px;
+  height: 45px;
+  background: rgba(255,0,0,.15);
+  border: none;
+  cursor: pointer;
+
+  left: 46%;
+  top: 30%;
+
+  z-index: 100;
+}
+
+.patro3.stanek2{
+  position: absolute;
+  width: 80px;
+  height: 45px;
+  background: rgba(255,0,0,.15);
+  border: none;
+  cursor: pointer;
+
+  left: 76%;
+  top: 76%;
+
+  z-index: 100;
+}
+
 @media (max-width:768px){
 
   .stanek1,

@@ -434,11 +434,11 @@ footer {
   .stanek1,
   .stanek2,
   .stanek3,
-  .stanek4,
-  .stanek5,
-  .stanek6,
-  .stanek7,
-  .stanek8{
+  .patro2.stanek1,
+  .patro2.stanek2,
+  .patro3.stanek1,
+  .patro3.stanek2,
+  .altanek.stanek8{
     width: 32px;
     height: 50px;
   }

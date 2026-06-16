@@ -335,7 +335,7 @@ footer {
   position: absolute;
   width: 80px;
   height: 45px;
-  background: rgba(255,0,0,.15);
+  background: transparent;
   border: none;
   cursor: pointer;
 
@@ -349,7 +349,7 @@ footer {
   position: absolute;
   width: 80px;
   height: 45px;
-  background: rgba(255,0,0,.15);
+  background: transparent;
   border: none;
   cursor: pointer;
 
@@ -363,7 +363,7 @@ footer {
   position: absolute;
   width: 80px;
   height: 45px;
-  background: rgba(255,0,0,.15);
+  background: transparent;
   border: none;
   cursor: pointer;
 
@@ -377,7 +377,7 @@ footer {
   position: absolute;
   width: 80px;
   height: 45px;
-  background: rgba(255,0,0,.15);
+  background: transparent;
   border: none;
   cursor: pointer;
 
@@ -391,7 +391,7 @@ footer {
   position: absolute;
   width: 80px;
   height: 45px;
-  background: rgba(255,0,0,.15);
+  background: transparent;
   border: none;
   cursor: pointer;
 
@@ -405,7 +405,7 @@ footer {
   position: absolute;
   width: 80px;
   height: 45px;
-  background: rgba(255,0,0,.15);
+  background: transparent;
   border: none;
   cursor: pointer;
 
@@ -419,7 +419,7 @@ footer {
   position: absolute;
   width: 80px;
   height: 45px;
-  background: rgba(255,0,0,.15);
+  background: transparent;
   border: none;
   cursor: pointer;
 
@@ -433,7 +433,7 @@ footer {
   position: absolute;
   width: 100px;
   height: 100px;
-  background: rgba(255,0,0,.15);
+  background: transparent;
   border: none;
   cursor: pointer;
 
@@ -453,7 +453,7 @@ footer {
   .patro3.stanek1,
   .patro3.stanek3,
   .altanek.stanek2{
-    width: 32px;
+    width: 39px;
     height: 50px;
   }
 

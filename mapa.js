@@ -64,3 +64,19 @@ function closePopup() {
     .classList.remove("show");
 
 }
+
+function openStand2(){
+
+  document
+    .getElementById("popup")
+    .classList.add("show");
+
+}
+
+function openStand3(){
+
+  document
+    .getElementById("popup")
+    .classList.add("show");
+
+

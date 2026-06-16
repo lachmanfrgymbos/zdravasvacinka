@@ -1,3 +1,16 @@
+document.addEventListener("DOMContentLoaded", () => {
+
+  console.log("JS loaded");
+
+  const menuToggle = document.getElementById("menu-toggle");
+  const navLinks = document.getElementById("nav-links");
+
+  menuToggle.addEventListener("click", () => {
+    navLinks.classList.toggle("show");
+  });
+
+});
+
 const supabaseUrl =
   'https://qtilqibkdouaztehzauj.supabase.co';
 
@@ -9,7 +22,6 @@ const supabaseClient =
     supabaseUrl,
     supabaseKey
   );
-
 
 
 /* =========================

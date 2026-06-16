@@ -382,7 +382,7 @@ footer {
   cursor: pointer;
 
   left: 15.7%;
-  top: 70%;
+  top: 40%;
 
   z-index: 100;
 }
@@ -395,8 +395,8 @@ footer {
   border: none;
   cursor: pointer;
 
-  left: 49%;
-  top: 42%;
+  left: 40%;
+  top: 15%;
 
   z-index: 100;
 }

@@ -381,8 +381,8 @@ footer {
   border: none;
   cursor: pointer;
 
-  left: 18%;
-  top: 40%;
+  left: 80%;
+  top: 10%;
 
   z-index: 100;
 }
@@ -405,7 +405,12 @@ footer {
 
   .stanek1,
   .stanek2,
-  .stanek3{
+  .stanek3,
+  .stanek4,
+  .stanek5,
+  .stanek6,
+  .stanek7,
+  .stanek8{
     width: 32px;
     height: 50px;
   }

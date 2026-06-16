@@ -332,58 +332,54 @@ footer {
 }
 
 .stanek1{
-
   position: absolute;
-
   width: 80px;
   height: 45px;
-
   background: rgba(255,0,0,.15);
-
   border: none;
-
   cursor: pointer;
 
-  left: 165px;
-  top: 295px;
+  left: 16.5%;
+  top: 50%;
 
   z-index: 100;
 }
 
-
 .stanek2{
-
   position: absolute;
-
   width: 80px;
   height: 45px;
-
   background: rgba(255,0,0,.15);
-
   border: none;
-
   cursor: pointer;
 
-  left: 464px;
-  top: 218px;
+  left: 46.4%;
+  top: 37%;
 
   z-index: 100;
 }
 
 .stanek3{
-
-  position:absolute;
-
-  width:80px;
-  height:45px;
-
-  background:rgba(255,0,0,.15);
-
-  border:none;
-
-  cursor:pointer;
+  position: absolute;
+  width: 80px;
+  height: 45px;
+  background: rgba(255,0,0,.15);
+  border: none;
+  cursor: pointer;
 
   left: 61.5%;
-  top: 29.5%;
+  top: 50%;
 
-  z-index:100
+  z-index: 100;
+}
+
+@media (max-width:768px){
+
+  .stanek1,
+  .stanek2,
+  .stanek3{
+    width: 45px;
+    height: 25px;
+  }
+
+}

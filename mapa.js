@@ -68,7 +68,7 @@ function closePopup() {
 function openStand2(){
 
   document
-    .getElementById("popup")
+    .getElementById("popup2")
     .classList.add("show");
 
 }
@@ -76,7 +76,7 @@ function openStand2(){
 function openStand3(){
 
   document
-    .getElementById("popup")
+    .getElementById("popup3")
     .classList.add("show");
 
 }

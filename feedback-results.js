@@ -1,10 +1,14 @@
-const SUPABASE_URL = "https://qtilqibkdouaztehzauj.supabase.co";
-const SUPABASE_KEY = "sb_publishable_Jpe7m1sYMWkT7FEsLn2Unw_IR3Joykt";
+const supabaseUrl =
+  'https://qtilqibkdouaztehzauj.supabase.co';
 
-const supabase = window.supabase.createClient(
-  "https://qtilqibkdouaztehzauj.supabase.co",
-  "sb_publishable_Jpe7m1sYMWkT7FEsLn2Unw_IR3Joykt"
-);
+const supabaseKey =
+  'sb_publishable_Jpe7m1sYMWkT7FEsLn2Unw_IR3Joykt';
+
+const supabaseClient =
+  supabase.createClient(
+    supabaseUrl,
+    supabaseKey
+  );
 
 const ratingValues = {
   "😳": 1,

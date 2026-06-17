@@ -442,3 +442,22 @@ body{
   }
 
 }
+
+.live-indicator{
+  display:inline-block;
+
+  margin-top:15px;
+
+  padding:10px 16px;
+
+  border-radius:999px;
+
+  background:
+  rgba(123,191,89,.12);
+
+  color:#5c8f3b;
+
+  font-weight:600;
+
+  font-size:13px;
+}

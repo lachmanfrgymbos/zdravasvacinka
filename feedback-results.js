@@ -1,7 +1,7 @@
 const SUPABASE_URL = "https://qtilqibkdouaztehzauj.supabase.co";
 const SUPABASE_KEY = "sb_publishable_Jpe7m1sYMWkT7FEsLn2Unw_IR3Joykt";
 
-const supabase = window.supabase.createClient(
+const supabaseClient = window.supabase.createClient(
   SUPABASE_URL,
   SUPABASE_KEY
 );
@@ -20,7 +20,7 @@ loadData();
 
 async function loadData() {
 
-  const { data, error } = await supabase
+  const { data, error } = await supabaseClient
     .from("feedback_after")
     .select("*")
     .order("created_at", { ascending: false });

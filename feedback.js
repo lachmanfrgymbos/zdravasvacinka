@@ -15,7 +15,7 @@ const supabaseUrl =
   'https://qtilqibkdouaztehzauj.supabase.co';
 
 const supabaseKey =
-  'https://qtilqibkdouaztehzauj.supabase.co';
+  'sb_publishable_Jpe7m1sYMWkT7FEsLn2Unw_IR3Joykt';
 
 const supabaseClient =
   supabase.createClient(

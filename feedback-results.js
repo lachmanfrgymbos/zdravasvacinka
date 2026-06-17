@@ -58,9 +58,15 @@ function updateStats(data) {
       ? (totalRating / data.length).toFixed(1)
       : 0;
 
-  document.getElementById(
-    "average-rating"
-  ).textContent = average;
+const stars = Math.round(average);
+
+document.getElementById(
+  "average-rating"
+).innerHTML =
+  "★".repeat(stars) +
+  "<br><small>" +
+  average +
+  "/4</small>";
 
   let topEmoji = "-";
   let maxCount = 0;

@@ -21,7 +21,7 @@ loadData();
 async function loadData() {
 
   const { data, error } = await supabase
-    .from("feedback")
+    .from("feedback_after")
     .select("*")
     .order("created_at", { ascending: false });
 

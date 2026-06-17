@@ -2,8 +2,8 @@ const SUPABASE_URL = "https://qtilqibkdouaztehzauj.supabase.co";
 const SUPABASE_KEY = "sb_publishable_Jpe7m1sYMWkT7FEsLn2Unw_IR3Joykt";
 
 const supabase = window.supabase.createClient(
-  https://qtilqibkdouaztehzauj.supabase.co,
-  sb_publishable_Jpe7m1sYMWkT7FEsLn2Unw_IR3Joykt
+  "https://qtilqibkdouaztehzauj.supabase.co",
+  "sb_publishable_Jpe7m1sYMWkT7FEsLn2Unw_IR3Joykt"
 );
 
 const ratingValues = {

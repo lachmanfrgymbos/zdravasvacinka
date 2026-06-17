@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Výsledky feedbacku | Zdravá Svačinka</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="feedback-results.css">
+</head>
+<body>
+
+<div class="background-glow"></div>
+<div class="background-glow second"></div>
+
+<main class="container">
+
+  <section class="hero">
+
+    <div class="badge">
+      Interní statistiky
+    </div>
+
+    <h1>
+      Výsledky<br>
+      feedbacku
+    </h1>
+
+    <p>
+      Přehled všech odpovědí návštěvníků akce.
+    </p>
+
+  </section>
+
+  <!-- HLAVNÍ STATISTIKY -->
+
+  <section class="stats-grid">
+
+    <div class="stat-card">
+      <span class="stat-icon">📋</span>
+      <h2 id="total-feedbacks">0</h2>
+      <p>Odpovědí</p>
+    </div>
+
+    <div class="stat-card">
+      <span class="stat-icon">⭐</span>
+      <h2 id="average-rating">0.0</h2>
+      <p>Průměrné hodnocení</p>
+    </div>
+
+    <div class="stat-card">
+      <span class="stat-icon">🏆</span>
+      <h2 id="winner-booth">-</h2>
+      <p>Vítězný stánek</p>
+    </div>
+
+    <div class="stat-card">
+      <span class="stat-icon">🔥</span>
+      <h2 id="top-emoji">-</h2>
+      <p>Nejčastější reakce</p>
+    </div>
+
+  </section>
+
+  <!-- HODNOCENÍ -->
+
+  <section class="glass-section">
+
+    <h3>Emoji hodnocení</h3>
+
+    <div class="rating-list">
+
+      <div class="rating-row">
+        <span>😳</span>
+        <div class="progress">
+          <div id="bar-shocked"></div>
+        </div>
+        <strong id="count-shocked">0</strong>
+      </div>
+
+      <div class="rating-row">
+        <span>🙂</span>
+        <div class="progress">
+          <div id="bar-happy"></div>
+        </div>
+        <strong id="count-happy">0</strong>
+      </div>
+
+      <div class="rating-row">
+        <span>😍</span>
+        <div class="progress">
+          <div id="bar-love"></div>
+        </div>
+        <strong id="count-love">0</strong>
+      </div>
+
+      <div class="rating-row">
+        <span>🔥</span>
+        <div class="progress">
+          <div id="bar-fire"></div>
+        </div>
+        <strong id="count-fire">0</strong>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- TOP STÁNKY -->
+
+  <section class="glass-section">
+
+    <h3>TOP 3 stánky</h3>
+
+    <div class="podium">
+
+      <div class="podium-card silver">
+        <span>🥈</span>
+        <h4 id="second-place">-</h4>
+        <p id="second-votes">0 hlasů</p>
+      </div>
+
+      <div class="podium-card gold">
+        <span>🥇</span>
+        <h4 id="first-place">-</h4>
+        <p id="first-votes">0 hlasů</p>
+      </div>
+
+      <div class="podium-card bronze">
+        <span>🥉</span>
+        <h4 id="third-place">-</h4>
+        <p id="third-votes">0 hlasů</p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- KOMENTÁŘE -->
+
+  <section class="comments-grid">
+
+    <div class="glass-section">
+
+      <div class="section-head">
+        <h3>💚 Co se líbilo</h3>
+        <button id="open-liked">
+          Zobrazit vše
+        </button>
+      </div>
+
+      <div id="liked-preview"></div>
+
+    </div>
+
+    <div class="glass-section">
+
+      <div class="section-head">
+        <h3>🛠 Co zlepšit</h3>
+        <button id="open-improve">
+          Zobrazit vše
+        </button>
+      </div>
+
+      <div id="improve-preview"></div>
+
+    </div>
+
+  </section>
+
+</main>
+
+<!-- MODAL -->
+
+<div class="modal" id="modal">
+
+  <div class="modal-content">
+
+    <button id="close-modal" class="close-btn">
+      ✕
+    </button>
+
+    <h2 id="modal-title">
+      Detail
+    </h2>
+
+    <div id="modal-list"></div>
+
+  </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="feedback-results.js"></script>
+
+</body>
+</html>

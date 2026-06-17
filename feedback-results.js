@@ -449,3 +449,8 @@ modal.classList.remove("show");
 }
 
 };
+
+// AUTO OBNOVOVÁNÍ DAT KAŽDÝCH 10 SEKUND
+setInterval(() => {
+  loadData();
+}, 10000);
